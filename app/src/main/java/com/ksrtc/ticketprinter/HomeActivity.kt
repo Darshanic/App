@@ -1,4 +1,4 @@
-package com.ksrtc.ticketprinter
+package com.sktc.ticketprinter
 
 import android.content.Intent
 import android.os.Bundle

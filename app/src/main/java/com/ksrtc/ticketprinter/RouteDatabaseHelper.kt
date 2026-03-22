@@ -1,4 +1,4 @@
-package com.ksrtc.ticketprinter
+package com.sktc.ticketprinter
 
 import android.content.ContentValues
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.ksrtc.ticketprinter
+package com.sktc.ticketprinter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

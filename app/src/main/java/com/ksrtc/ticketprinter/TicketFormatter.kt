@@ -1,4 +1,4 @@
-package com.ksrtc.ticketprinter
+package com.sktc.ticketprinter
 
 import android.graphics.Bitmap
 import android.graphics.Canvas

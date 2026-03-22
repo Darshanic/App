@@ -70,9 +70,9 @@
         android:columnCount="3"
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
-        <Button android:text="ಕಲ್ಲಹಳ್ಳಿ" android:backgroundTint="#333" android:textColor="@color/white" android:layout_margin="4dp" android:layout_columnWeight="1"/>
-        <Button android:text="ಇಂದುವಾಳು" android:backgroundTint="@color/accent_blue" android:textColor="@color/white" android:layout_margin="4dp" android:layout_columnWeight="1"/>
-        <Button android:text="ಸುಂಡಳ್ಳಿ" android:backgroundTint="#333" android:textColor="@color/white" android:layout_margin="4dp" android:layout_columnWeight="1"/>
+        <Button android:text="ಕಲ್ಲಹಳ್ಳಿ" android:backgroundTint="#333" android:textColor="@color/white" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <Button android:text="ಇಂದುವಾಳು" android:backgroundTint="@color/accent_blue" android:textColor="@color/white" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <Button android:text="ಸುಂಡಳ್ಳಿ" android:backgroundTint="#333" android:textColor="@color/white" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
     </GridLayout>
 
     <!-- Spacer -->

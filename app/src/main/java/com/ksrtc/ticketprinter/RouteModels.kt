@@ -1,4 +1,4 @@
-package com.ksrtc.ticketprinter
+package com.sktc.ticketprinter
 
 data class Stop(
     val id: Int,

@@ -1,4 +1,4 @@
-package com.ksrtc.ticketprinter
+package com.sktc.ticketprinter
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothAdapter

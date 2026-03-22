@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ksrtc.ticketprinter">
+    package="com.sktc.ticketprinter">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicketPrinter">
         <activity
-            android:name=".HomeActivity"
+            android:name="com.sktc.ticketprinter.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,22 +24,22 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.sktc.ticketprinter.MainActivity"
             android:exported="false"
             android:label="Commute Ticket" />
 
         <activity
-            android:name=".ManagerSetupActivity"
+            android:name="com.sktc.ticketprinter.ManagerSetupActivity"
             android:exported="false"
             android:label="Manager Setup" />
 
         <activity
-            android:name=".DailyReportActivity"
+            android:name="com.sktc.ticketprinter.DailyReportActivity"
             android:exported="false"
             android:label="Daily Report" />
 
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.sktc.ticketprinter.SettingsActivity"
             android:exported="false"
             android:label="Settings" />
     </application>
