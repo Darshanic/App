@@ -15,13 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicketPrinter">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="Commute Ticket" />
+
+        <activity
+            android:name=".ManagerSetupActivity"
+            android:exported="false"
+            android:label="Manager Setup" />
+
+        <activity
+            android:name=".DailyReportActivity"
+            android:exported="false"
+            android:label="Daily Report" />
 
         <activity
             android:name=".SettingsActivity"
