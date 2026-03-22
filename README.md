@@ -95,3 +95,10 @@ This repository currently contains `gradle/wrapper/gradle-wrapper.properties`, b
 
 - Android Studio can still import/sync using its own Gradle integration.
 - For terminal builds (`.\gradlew ...`), add/generate wrapper scripts first.
+
+## License
+
+This project is proprietary and All Rights Reserved.
+
+- See [LICENSE](LICENSE) for full legal terms.
+- Commercial use requires prior written consent from the copyright owner.
