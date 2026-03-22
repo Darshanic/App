@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ksrtc.ticketprinter.app-mergeDebugResources-38:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\darsh\\.gradle\\caches\\9.3.1\\transforms\\b52bcfdcf31d94cca620c420b788b902\\workspace\\transformed\\material-1.10.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,61",
+                        "endOffsets": "105,167"
+                    }
+                }
+            ]
+        }
+    ]
+}

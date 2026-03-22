@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/layout_activity_main.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/layout_activity_manager_setup.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/layout/activity_manager_setup.xml"
+    },
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/layout_activity_daily_report.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/layout/activity_daily_report.xml"
+    },
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/layout_activity_home.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/drawable_ic_app_icon.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/drawable/ic_app_icon.xml"
+    },
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/menu_main_menu.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/menu/main_menu.xml"
+    },
+    {
+        "merged": "com.ksrtc.ticketprinter.app-debug-40:/xml_preferences.xml.flat",
+        "source": "com.ksrtc.ticketprinter.app-main-42:/xml/preferences.xml"
+    }
+]

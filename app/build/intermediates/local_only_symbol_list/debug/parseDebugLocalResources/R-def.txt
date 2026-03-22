@@ -1,0 +1,35 @@
+R_DEF: Internal format may change without notice
+local
+array printer_width_entries
+array printer_width_values
+color accent_blue
+color black
+color primary_dark
+color primary_text
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_app_icon
+id action_settings
+id btnAdultMinus
+id btnAdultPlus
+id btnChildMinus
+id btnChildPlus
+id btnCommuteTicket
+id btnDailyReport
+id btnManagerSetup
+id btnPrint
+id btnSettings
+id tvAdultCount
+id tvChildCount
+layout activity_daily_report
+layout activity_home
+layout activity_main
+layout activity_manager_setup
+menu main_menu
+string app_name
+style Theme.TicketPrinter
+xml preferences
