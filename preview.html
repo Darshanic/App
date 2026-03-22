@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Printer - UI Preview</title>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .app-container {
+            width: 360px;
+            height: 700px;
+            background-color: #1A1A1A;
+            border: 2px solid #333;
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .header {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .btn-label {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            flex: 1;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .text-value {
+            flex: 2;
+            padding-left: 15px;
+            font-size: 18px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: auto; /* Pushes everything below it down */
+        }
+        .grid-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .grid-btn.active {
+            background-color: #00ACC1;
+        }
+        .counter-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .counter-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .counter-text {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        .action-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .pass-btn, .reset-btn {
+            flex: 1;
+        }
+        .print-btn {
+            flex: 2;
+            background-color: #222;
+            font-size: 20px;
+        }
+        .print-btn:hover {
+            background-color: #444;
+        }
+        .fare-display {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ACC1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">Trip 1: ಮಂಡ್ಯ to ಶ್ರೀರಂಗಪಟ್ಟಣ</div>
+    
+    <div class="row">
+        <div class="btn-label">FROM</div>
+        <div class="text-value">ಮಂಡ್ಯ</div>
+    </div>
+    
+    <div class="row">
+        <div class="btn-label">TO</div>
+        <div class="text-value">ಇಂದುವಾಳು</div>
+    </div>
+
+    <div class="grid">
+        <button class="grid-btn">ಕಲ್ಲಹಳ್ಳಿ</button>
+        <button class="grid-btn active">ಇಂದುವಾಳು</button>
+        <button class="grid-btn">ಸುಂಡಳ್ಳಿ</button>
+        <button class="grid-btn">ತೂಬಿನಕೆರೆ</button>
+        <button class="grid-btn">ಗಣಂಗೂರು</button>
+        <button class="grid-btn">ಗೌರಿಪುರ</button>
+    </div>
+
+    <div class="counter-row">
+        <button class="counter-btn" onclick="updateAdult(-1)">-</button>
+        <div class="counter-text" id="adultCount">Adult: 1</div>
+        <button class="counter-btn" onclick="updateAdult(1)">+</button>
+    </div>
+
+    <div class="counter-row">
+        <button class="counter-btn" onclick="updateChild(-1)">-</button>
+        <div class="counter-text" id="childCount">Child: 0</div>
+        <button class="counter-btn" onclick="updateChild(1)">+</button>
+    </div>
+
+    <div class="actions">
+        <button class="action-btn pass-btn">PASS</button>
+        <button class="action-btn print-btn" onclick="printTicket()">PRINT</button>
+        <button class="action-btn reset-btn">RESET</button>
+    </div>
+    
+    <div class="fare-display" id="fareTotal">Fare: ₹ 5.00</div>
+</div>
+
+<script>
+    let adults = 1;
+    let children = 0;
+    const baseFare = 5.00;
+
+    function updateAdult(change) {
+        if (adults + change >= 1) {
+            adults += change;
+            document.getElementById('adultCount').innerText = `Adult: ${adults}`;
+            calculateFare();
+        }
+    }
+
+    function updateChild(change) {
+        if (children + change >= 0) {
+            children += change;
+            document.getElementById('childCount').innerText = `Child: ${children}`;
+            calculateFare();
+        }
+    }
+
+    function calculateFare() {
+        const childFare = baseFare / 2;
+        const total = (adults * baseFare) + (children * childFare);
+        document.getElementById('fareTotal').innerText = `Fare: ₹ ${total.toFixed(2)}`;
+    }
+
+    function printTicket() {
+        alert("This is a web preview! In the actual Android App, this button connects via Bluetooth to print your exact Kannada thermal ticket.");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory app:title="Print">
+        <SwitchPreferenceCompat
+            app:key="confirm_printing"
+            app:title="Confirm before printing"
+            app:summary="Show a confirmation dialog box before printing"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="print_time_expense"
+            app:title="Print time with expense"
+            app:summary="Print timestamp next to each expense in sales report"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="print_stops_pass"
+            app:title="Print stops for pass"
+            app:summary="Print origin and destination stops for fixed fare passes"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="cancel_receipt"
+            app:title="Cancel receipt"
+            app:summary="Print a receipt for cancelled tickets with the ticket number and refund amount"
+            app:defaultValue="true"/>
+            
+        <SwitchPreferenceCompat
+            app:key="device_id"
+            app:title="Device ID"
+            app:summary="Print unique device identifier on each ticket"
+            app:defaultValue="false"/>
+
+        <ListPreference
+            app:key="printer_width"
+            app:title="Printer width"
+            app:summary="Printer width in characters. Recommended: 32 for 50mm thermal printers or 48 for 80mm thermal printers"
+            app:entries="@array/printer_width_entries"
+            app:entryValues="@array/printer_width_values"
+            app:defaultValue="32"/>
+            
+        <EditTextPreference
+            app:key="header_text"
+            app:title="Header"
+            app:summary="Header text printed at top of tickets." />
+            
+        <EditTextPreference
+            app:key="footer_text"
+            app:title="Footer"
+            app:summary="Footer text printed at bottom of tickets." />
+
+        <SwitchPreferenceCompat
+            app:key="add_carriage_return"
+            app:title="Add carriage return"
+            app:summary="Carriage return character in addition to the new line character is required by some Printers at the end of each line."
+            app:defaultValue="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Ticket">
+        <Preference
+            app:key="edit_routes"
+            app:title="Edit routes"
+            app:summary="Edit routes, fares, passes, and expenses" />
+
+        <SwitchPreferenceCompat
+            app:key="stage_lock"
+            app:title="Stage lock"
+            app:summary="Enable to prevent issuing of tickets for old stops/stages"
+            app:defaultValue="false"/>
+
+        <SwitchPreferenceCompat
+            app:key="group_tickets"
+            app:title="Group tickets"
+            app:summary="Enable to print a single ticket for multiple passengers"
+            app:defaultValue="true"/>
+
+        <SwitchPreferenceCompat
+            app:key="child_tickets"
+            app:title="Child tickets"
+            app:summary="Enable to issue tickets for children. Disable to issue only adult tickets"
+            app:defaultValue="true"/>
+            
+        <EditTextPreference
+            app:key="child_ticket_rate"
+            app:title="Child ticket rate"
+            app:summary="Ticket rate as a percentage of adult ticket fare"
+            app:defaultValue="50" />
+
+        <SwitchPreferenceCompat
+            app:key="enable_passes"
+            app:title="Enable passes"
+            app:summary="Use concession passes to discount tickets based on a percentage or value"
+            app:defaultValue="true"/>
+            
+        <SwitchPreferenceCompat
+            app:key="luggage_tickets"
+            app:title="Luggage tickets"
+            app:summary="Issue separate tickets for luggage"
+            app:defaultValue="true"/>
+            
+        <SwitchPreferenceCompat
+            app:key="cancel_last_ticket"
+            app:title="Cancel last ticket"
+            app:summary="Allow cancelling of the last ticket issued."
+            app:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="General">
+        <SwitchPreferenceCompat
+            app:key="ignore_print_errors"
+            app:title="Ignore print errors"
+            app:summary="Use when testing the app without a printer"
+            app:defaultValue="true"/>
+            
+        <Preference
+            app:key="change_settings_pin"
+            app:title="Change settings PIN"
+            app:summary="Warning: disabling PIN will allow anyone to modify routes, fares, and settings"/>
+            
+        <Preference
+            app:key="remote_management"
+            app:title="Remote management"
+            app:summary="Web based location tracking, sales reports, and route management"/>
+            
+        <SwitchPreferenceCompat
+            app:key="beep_on_error"
+            app:title="Beep on error"
+            app:summary="Beep the speaker when there is an error"
+            app:defaultValue="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

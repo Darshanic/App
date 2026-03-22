@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="printer_width_entries">
+        <item>32 characters (50mm)</item>
+        <item>48 characters (80mm)</item>
+    </string-array>
+    <string-array name="printer_width_values">
+        <item>32</item>
+        <item>48</item>
+    </string-array>
+</resources>

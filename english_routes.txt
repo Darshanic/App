@@ -1,0 +1,133 @@
+Route, Mandya, Srirangapatna, , ORDINARY
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18
+Stop, Sundalli, 6, 8, 10, 12, 14, 16
+Stop, Kalenahalli, 6, 8, 10, 12, 14
+Stop, Tubinakere, 6, 8, 10, 12
+Stop, Gananguru, 6, 8, 10
+Stop, Gawripura, 6, 8
+Stop, Baburayanakoppalu, 6
+Stop, Srirangapatna
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Srirangapatna, Mandya, , ORDINARY
+Stop, Srirangapatna, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Baburayanakoppalu, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Gawripura, 6, 8, 10, 12, 14, 16, 18
+Stop, Gananguru, 6, 8, 10, 12, 14, 16
+Stop, Tubinakere, 6, 8, 10, 12, 14
+Stop, Kalenahalli, 6, 8, 10, 12
+Stop, Sundalli, 6, 8, 10
+Stop, Induvalu, 6, 8
+Stop, Kallahalli, 6
+Stop, Mandya
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Mandya, Arakere, , CITY_ORD
+Stop, Mandya, 6, 8, 10, 13, 15, 17, 20, 22
+Stop, Kallahalli, 6, 8, 10, 13, 15, 17, 20
+Stop, Induvalu, 6, 8, 10, 13, 15, 17
+Stop, Molekoppalu, 6, 8, 10, 13, 15
+Stop, Hulkere, 6, 8, 10, 13
+Stop, Hunasanahalli, 6, 8, 10
+Stop, Kodiyal, 6, 8
+Stop, Tadagavadi, 6
+Stop, Arakere
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Arakere, Mandya, , CITY_ORD
+Stop, Arakere, 6, 8, 10, 13, 15, 17, 20, 22
+Stop, Tadagavadi, 6, 8, 10, 13, 15, 17, 20
+Stop, Kodiyal, 6, 8, 10, 13, 15, 17
+Stop, Hunasanahalli, 6, 8, 10, 13, 15
+Stop, Hulkere, 6, 8, 10, 13
+Stop, Molekoppalu, 6, 8, 10
+Stop, Induvalu, 6, 8
+Stop, Kallahalli, 6
+Stop, Mandya
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Mandya, Maddur, 1, CITY_ORD
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 18
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16
+Stop, Boodanuru, 6, 8, 10, 12, 14
+Stop, Hale Boodanuru, 6, 8, 10, 12
+Stop, Hanakere, 6, 8, 10
+Stop, Gejjalagere, 6, 8
+Stop, HKV Nagar, 6
+Stop, Maddur
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Maddur, Mandya, 1, CITY_ORD
+Stop, Maddur, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, HKV Nagar, 6, 8, 10, 12, 14, 16, 18
+Stop, Gejjalagere, 6, 8, 10, 12, 14, 16
+Stop, Hanakere, 6, 8, 10, 12, 14
+Stop, Hale Boodanuru, 6, 8, 10, 12
+Stop, Boodanuru, 6, 8, 10
+Stop, Ummadahalli Gate, 6, 8
+Stop, Swarna Sandra, 6
+Stop, Mandya
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Mandya, Bannur, 4, CITY_ORD
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30
+Stop, Hosalli Circle, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28
+Stop, Jail Colony, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26
+Stop, Kyathumgere, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Kothathi, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Mothahalli Badavane, 6, 8, 10, 12, 14, 16, 18
+Stop, K M Koppalu, 6, 8, 10, 12, 14, 16
+Stop, Marasinganahalli, 6, 8, 10, 12, 14
+Stop, Yachenahalli, 6, 8, 10, 12
+Stop, Thuruganuru, 6, 8, 10
+Stop, D G Koppalu, 6, 8
+Stop, Chamanahalli, 6
+Stop, Bannur
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Route, Bannur, Mandya, 4, CITY_ORD
+Stop, Bannur, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30
+Stop, Chamanahalli, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28
+Stop, D G Koppalu, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26
+Stop, Thuruganuru, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24
+Stop, Yachenahalli, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Marasinganahalli, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, K M Koppalu, 6, 8, 10, 12, 14, 16, 18
+Stop, Mothahalli Badavane, 6, 8, 10, 12, 14, 16
+Stop, Kothathi, 6, 8, 10, 12, 14
+Stop, Bevinahalli, 6, 8, 10, 12
+Stop, Kyathumgere, 6, 8, 10
+Stop, Jail Colony, 6, 8
+Stop, Hosalli Circle, 6
+Stop, Mandya
+Pass, Student Pass, Student Pass 100% Discount, 100%
+Pass, Day Pass, Unlimited Day Pass for KSRTC Mandya Division, 70.00
+Pass, Senior Discount, Senior Citizen 20% Discount, 20%
+
+Note, DRIVER-NAME, Rajesh, Suresh, Manjunath, Ravi, Kumar, Prasad, Nagaraj, Krishna, Venkatesh, Shiva
+Note, BUS-NUMBER, KA09-F5551, KA09-F5552, KA09-F5553, KA09-F5554
+
+Expense, FUEL COST
+Expense, TOLLS
+Expense, CLEANING, 50.00
+Expense, DRIVER WAGE, 5.0%
+Expense, OTHER 1
+Expense, OTHER 2
