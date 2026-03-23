@@ -1,8 +1,8 @@
-com.ksrtc.ticketprinter.app-pngs-0 E:\App\app\build\generated\res\pngs\debug
-com.ksrtc.ticketprinter.app-resValues-1 E:\App\app\build\generated\res\resValues\debug
-com.ksrtc.ticketprinter.app-updated_navigation_xml-2 E:\App\app\build\generated\updated_navigation_xml\debug
-com.ksrtc.ticketprinter.app-packageDebugResources-3 E:\App\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.ksrtc.ticketprinter.app-packageDebugResources-4 E:\App\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.ksrtc.ticketprinter.app-debug-5 E:\App\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.ksrtc.ticketprinter.app-debug-6 E:\App\app\src\debug\res
-com.ksrtc.ticketprinter.app-main-7 E:\App\app\src\main\res
+com.sktc.ticketprinter.app-pngs-0 E:\App\app\build\generated\res\pngs\debug
+com.sktc.ticketprinter.app-resValues-1 E:\App\app\build\generated\res\resValues\debug
+com.sktc.ticketprinter.app-updated_navigation_xml-2 E:\App\app\build\generated\updated_navigation_xml\debug
+com.sktc.ticketprinter.app-packageDebugResources-3 E:\App\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.sktc.ticketprinter.app-packageDebugResources-4 E:\App\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.sktc.ticketprinter.app-debug-5 E:\App\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.sktc.ticketprinter.app-debug-6 E:\App\app\src\debug\res
+com.sktc.ticketprinter.app-main-7 E:\App\app\src\main\res

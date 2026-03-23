@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ksrtc.ticketprinter.app-mergeDebugResources-38:/values/values.xml",
+            "outputFile": "com.sktc.ticketprinter.app-mergeDebugResources-38:/values/values.xml",
             "map": [
                 {
                     "source": "E:\\App\\app\\src\\main\\res\\values\\themes.xml",

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ksrtc.ticketprinter"
+    package="com.sktc.ticketprinter"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,10 +14,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 
     <permission
-        android:name="com.ksrtc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.sktc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.ksrtc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.sktc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:allowBackup="true"
@@ -31,7 +31,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.TicketPrinter" >
         <activity
-            android:name="com.ksrtc.ticketprinter.HomeActivity"
+            android:name="com.sktc.ticketprinter.HomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,25 +40,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ksrtc.ticketprinter.MainActivity"
+            android:name="com.sktc.ticketprinter.MainActivity"
             android:exported="false"
             android:label="Commute Ticket" />
         <activity
-            android:name="com.ksrtc.ticketprinter.ManagerSetupActivity"
+            android:name="com.sktc.ticketprinter.ManagerSetupActivity"
             android:exported="false"
             android:label="Manager Setup" />
         <activity
-            android:name="com.ksrtc.ticketprinter.DailyReportActivity"
+            android:name="com.sktc.ticketprinter.DailyReportActivity"
             android:exported="false"
             android:label="Daily Report" />
         <activity
-            android:name="com.ksrtc.ticketprinter.SettingsActivity"
+            android:name="com.sktc.ticketprinter.SettingsActivity"
             android:exported="false"
             android:label="Settings" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.ksrtc.ticketprinter.androidx-startup"
+            android:authorities="com.sktc.ticketprinter.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ksrtc.ticketprinter.app-mergeDebugResources-38:/values-bn/values-bn.xml",
+            "outputFile": "com.sktc.ticketprinter.app-mergeDebugResources-38:/values-bn/values-bn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\darsh\\.gradle\\caches\\9.3.1\\transforms\\a32c4c09e59a7d9f6c3e987090d8cf05\\workspace\\transformed\\appcompat-1.6.1\\res\\values-bn\\values-bn.xml",

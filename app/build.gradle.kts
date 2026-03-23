@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ksrtc.ticketprinter"
+    namespace = "com.sktc.ticketprinter"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ksrtc.ticketprinter"
+        applicationId = "com.sktc.ticketprinter"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
