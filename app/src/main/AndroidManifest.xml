@@ -25,6 +25,11 @@
         <activity
             android:name="com.sktc.ticketprinter.MainActivity"
             android:exported="false"
+            android:label="Commute Ticket (Legacy)" />
+
+        <activity
+            android:name="com.sktc.ticketprinter.CommuteTicketActivity"
+            android:exported="false"
             android:label="Commute Ticket" />
 
         <activity

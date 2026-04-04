@@ -16,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnCommuteTicket).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, CommuteTicketActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnDailyReport).setOnClickListener {

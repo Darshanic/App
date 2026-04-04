@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <!-- Top Information Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Division"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tvDivision"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textSize="16sp"
+                    android:textColor="#1976D2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textSize="16sp"
+                    android:textColor="#1976D2" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Route Information -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Route Details"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvRouteNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Route: Coming Soon"
+                android:textSize="14sp"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvRouteInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="From – To: (Select stops below)"
+                android:textSize="14sp"
+                android:textColor="#666666" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Stop Selection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="From Stop"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:paddingBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/spFromStop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To Stop"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:paddingBottom="8dp" />
+
+            <Spinner
+                android:id="@+id/spToStop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Passenger Selection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Passengers"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:paddingBottom="12dp" />
+
+            <!-- Adults -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp">
+
+                <Button
+                    android:id="@+id/btnAdultMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="−"
+                    android:textSize="20sp"
+                    android:backgroundTint="#FF6F00" />
+
+                <TextView
+                    android:id="@+id/tvAdultCount"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="2"
+                    android:text="Adults: 1"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#F5F5F5" />
+
+                <Button
+                    android:id="@+id/btnAdultPlus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textSize="20sp"
+                    android:backgroundTint="#FF6F00" />
+            </LinearLayout>
+
+            <!-- Children -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp">
+
+                <Button
+                    android:id="@+id/btnChildMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="−"
+                    android:textSize="20sp"
+                    android:backgroundTint="#4CAF50" />
+
+                <TextView
+                    android:id="@+id/tvChildCount"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="2"
+                    android:text="Children: 0"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#F5F5F5" />
+
+                <Button
+                    android:id="@+id/btnChildPlus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textSize="20sp"
+                    android:backgroundTint="#4CAF50" />
+            </LinearLayout>
+
+            <!-- Passes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp">
+
+                <Button
+                    android:id="@+id/btnPassMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="−"
+                    android:textSize="20sp"
+                    android:backgroundTint="#9C27B0" />
+
+                <TextView
+                    android:id="@+id/tvPassCount"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="2"
+                    android:text="Passes: 0"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#F5F5F5" />
+
+                <Button
+                    android:id="@+id/btnPassPlus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textSize="20sp"
+                    android:backgroundTint="#9C27B0" />
+            </LinearLayout>
+
+            <!-- Luggage -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnLuggageMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="−"
+                    android:textSize="20sp"
+                    android:backgroundTint="#F57C00" />
+
+                <TextView
+                    android:id="@+id/tvLuggageCount"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="2"
+                    android:text="Luggage: 0"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:background="#F5F5F5" />
+
+                <Button
+                    android:id="@+id/btnLuggagePlus"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textSize="20sp"
+                    android:backgroundTint="#F57C00" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Total Fare -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#E3F2FD"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total Fare:"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvTotalFare"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TOT: ₹0.00"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1976D2"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="8dp">
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Reset"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#757575" />
+
+            <Button
+                android:id="@+id/btnPrint"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1.5"
+                android:text="Print Ticket"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:textStyle="bold"
+                android:backgroundTint="#1976D2"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnReport"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Report"
+                android:textSize="16sp"
+                android:backgroundTint="#388E3C" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

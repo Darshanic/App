@@ -23,165 +23,172 @@
 14    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 14-->E:\App\app\src\main\AndroidManifest.xml:7:5-73
 14-->E:\App\app\src\main\AndroidManifest.xml:7:22-70
-15
-16    <permission
-16-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
-17        android:name="com.sktc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-17-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
-18        android:protectionLevel="signature" />
-18-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
-19
-20    <uses-permission android:name="com.sktc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-20-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
-20-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+15    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
+15-->[androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+15-->[androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+16    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+16-->[androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+16-->[androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+17
+18    <permission
+18-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+19        android:name="com.sktc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
 21
-22    <application
-22-->E:\App\app\src\main\AndroidManifest.xml:9:5-44:19
-23        android:allowBackup="true"
-23-->E:\App\app\src\main\AndroidManifest.xml:10:9-35
-24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-24-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
-25        android:debuggable="true"
-26        android:extractNativeLibs="false"
-26-->INJECTED
-27        android:icon="@drawable/ic_app_icon"
-27-->E:\App\app\src\main\AndroidManifest.xml:11:9-45
-28        android:label="@string/app_name"
-28-->E:\App\app\src\main\AndroidManifest.xml:12:9-41
-29        android:roundIcon="@drawable/ic_app_icon"
-29-->E:\App\app\src\main\AndroidManifest.xml:13:9-50
-30        android:supportsRtl="true"
-30-->E:\App\app\src\main\AndroidManifest.xml:14:9-35
-31        android:theme="@style/Theme.TicketPrinter" >
-31-->E:\App\app\src\main\AndroidManifest.xml:15:9-51
-32        <activity
-32-->E:\App\app\src\main\AndroidManifest.xml:16:9-23:20
-33            android:name="com.sktc.ticketprinter.HomeActivity"
-33-->E:\App\app\src\main\AndroidManifest.xml:17:13-63
-34            android:exported="true" >
-34-->E:\App\app\src\main\AndroidManifest.xml:18:13-36
-35            <intent-filter>
-35-->E:\App\app\src\main\AndroidManifest.xml:19:13-22:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->E:\App\app\src\main\AndroidManifest.xml:20:17-69
-36-->E:\App\app\src\main\AndroidManifest.xml:20:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->E:\App\app\src\main\AndroidManifest.xml:21:17-77
-38-->E:\App\app\src\main\AndroidManifest.xml:21:27-74
-39            </intent-filter>
-40        </activity>
-41        <activity
-41-->E:\App\app\src\main\AndroidManifest.xml:25:9-28:46
-42            android:name="com.sktc.ticketprinter.MainActivity"
-42-->E:\App\app\src\main\AndroidManifest.xml:26:13-63
-43            android:exported="false"
-43-->E:\App\app\src\main\AndroidManifest.xml:27:13-37
-44            android:label="Commute Ticket" />
-44-->E:\App\app\src\main\AndroidManifest.xml:28:13-43
-45        <activity
-45-->E:\App\app\src\main\AndroidManifest.xml:30:9-33:45
-46            android:name="com.sktc.ticketprinter.ManagerSetupActivity"
-46-->E:\App\app\src\main\AndroidManifest.xml:31:13-71
-47            android:exported="false"
-47-->E:\App\app\src\main\AndroidManifest.xml:32:13-37
-48            android:label="Manager Setup" />
-48-->E:\App\app\src\main\AndroidManifest.xml:33:13-42
-49        <activity
-49-->E:\App\app\src\main\AndroidManifest.xml:35:9-38:44
-50            android:name="com.sktc.ticketprinter.DailyReportActivity"
-50-->E:\App\app\src\main\AndroidManifest.xml:36:13-70
-51            android:exported="false"
-51-->E:\App\app\src\main\AndroidManifest.xml:37:13-37
-52            android:label="Daily Report" />
-52-->E:\App\app\src\main\AndroidManifest.xml:38:13-41
-53        <activity
-53-->E:\App\app\src\main\AndroidManifest.xml:40:9-43:40
-54            android:name="com.sktc.ticketprinter.SettingsActivity"
-54-->E:\App\app\src\main\AndroidManifest.xml:41:13-67
-55            android:exported="false"
-55-->E:\App\app\src\main\AndroidManifest.xml:42:13-37
-56            android:label="Settings" />
-56-->E:\App\app\src\main\AndroidManifest.xml:43:13-37
-57
-58        <provider
-58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-59            android:name="androidx.startup.InitializationProvider"
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-60            android:authorities="com.sktc.ticketprinter.androidx-startup"
-60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-61            android:exported="false" >
-61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-62            <meta-data
-62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-64                android:value="androidx.startup" />
-64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+22    <uses-permission android:name="com.sktc.ticketprinter.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+22-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+23
+24    <application
+24-->E:\App\app\src\main\AndroidManifest.xml:9:5-44:19
+25        android:allowBackup="true"
+25-->E:\App\app\src\main\AndroidManifest.xml:10:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+27        android:debuggable="true"
+28        android:extractNativeLibs="false"
+28-->INJECTED
+29        android:icon="@drawable/ic_app_icon"
+29-->E:\App\app\src\main\AndroidManifest.xml:11:9-45
+30        android:label="@string/app_name"
+30-->E:\App\app\src\main\AndroidManifest.xml:12:9-41
+31        android:roundIcon="@drawable/ic_app_icon"
+31-->E:\App\app\src\main\AndroidManifest.xml:13:9-50
+32        android:supportsRtl="true"
+32-->E:\App\app\src\main\AndroidManifest.xml:14:9-35
+33        android:testOnly="true"
+34        android:theme="@style/Theme.TicketPrinter" >
+34-->E:\App\app\src\main\AndroidManifest.xml:15:9-51
+35        <activity
+35-->E:\App\app\src\main\AndroidManifest.xml:16:9-23:20
+36            android:name="com.sktc.ticketprinter.HomeActivity"
+36-->E:\App\app\src\main\AndroidManifest.xml:17:13-63
+37            android:exported="true" >
+37-->E:\App\app\src\main\AndroidManifest.xml:18:13-36
+38            <intent-filter>
+38-->E:\App\app\src\main\AndroidManifest.xml:19:13-22:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->E:\App\app\src\main\AndroidManifest.xml:20:17-69
+39-->E:\App\app\src\main\AndroidManifest.xml:20:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->E:\App\app\src\main\AndroidManifest.xml:21:17-77
+41-->E:\App\app\src\main\AndroidManifest.xml:21:27-74
+42            </intent-filter>
+43        </activity>
+44        <activity
+44-->E:\App\app\src\main\AndroidManifest.xml:25:9-28:46
+45            android:name="com.sktc.ticketprinter.MainActivity"
+45-->E:\App\app\src\main\AndroidManifest.xml:26:13-63
+46            android:exported="false"
+46-->E:\App\app\src\main\AndroidManifest.xml:27:13-37
+47            android:label="Commute Ticket" />
+47-->E:\App\app\src\main\AndroidManifest.xml:28:13-43
+48        <activity
+48-->E:\App\app\src\main\AndroidManifest.xml:30:9-33:45
+49            android:name="com.sktc.ticketprinter.ManagerSetupActivity"
+49-->E:\App\app\src\main\AndroidManifest.xml:31:13-71
+50            android:exported="false"
+50-->E:\App\app\src\main\AndroidManifest.xml:32:13-37
+51            android:label="Manager Setup" />
+51-->E:\App\app\src\main\AndroidManifest.xml:33:13-42
+52        <activity
+52-->E:\App\app\src\main\AndroidManifest.xml:35:9-38:44
+53            android:name="com.sktc.ticketprinter.DailyReportActivity"
+53-->E:\App\app\src\main\AndroidManifest.xml:36:13-70
+54            android:exported="false"
+54-->E:\App\app\src\main\AndroidManifest.xml:37:13-37
+55            android:label="Daily Report" />
+55-->E:\App\app\src\main\AndroidManifest.xml:38:13-41
+56        <activity
+56-->E:\App\app\src\main\AndroidManifest.xml:40:9-43:40
+57            android:name="com.sktc.ticketprinter.SettingsActivity"
+57-->E:\App\app\src\main\AndroidManifest.xml:41:13-67
+58            android:exported="false"
+58-->E:\App\app\src\main\AndroidManifest.xml:42:13-37
+59            android:label="Settings" />
+59-->E:\App\app\src\main\AndroidManifest.xml:43:13-37
+60
+61        <provider
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+62            android:name="androidx.startup.InitializationProvider"
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+63            android:authorities="com.sktc.ticketprinter.androidx-startup"
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+64            android:exported="false" >
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
 65            <meta-data
-65-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-66-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
 67                android:value="androidx.startup" />
-67-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
 68            <meta-data
-68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-69                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+68-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+69-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
 70                android:value="androidx.startup" />
-70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-71        </provider>
-72
-73        <uses-library
-73-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-74            android:name="androidx.window.extensions"
-74-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-75            android:required="false" />
-75-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+70-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+72                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+73                android:value="androidx.startup" />
+73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+74        </provider>
+75
 76        <uses-library
-76-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-77            android:name="androidx.window.sidecar"
-77-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+76-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+77            android:name="androidx.window.extensions"
+77-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
 78            android:required="false" />
-78-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-79
-80        <receiver
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-81            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-82            android:directBootAware="false"
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-83            android:enabled="true"
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-84            android:exported="true"
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-85            android:permission="android.permission.DUMP" >
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-86            <intent-filter>
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-87                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-88            </intent-filter>
+78-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+79        <uses-library
+79-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+80            android:name="androidx.window.sidecar"
+80-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+81            android:required="false" />
+81-->[androidx.window:window:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\c2d9010d97409bacb90ce974e7e3bdcd\workspace\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+82
+83        <receiver
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+84            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+85            android:directBootAware="false"
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+86            android:enabled="true"
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+87            android:exported="true"
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+88            android:permission="android.permission.DUMP" >
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
 89            <intent-filter>
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-90                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+90                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
 91            </intent-filter>
 92            <intent-filter>
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-93                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+93                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
 94            </intent-filter>
 95            <intent-filter>
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-96                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+96                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
 97            </intent-filter>
-98        </receiver>
-99    </application>
-100
-101</manifest>
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+99                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f71793f2879537088b54ef382b642a2f\workspace\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+100            </intent-filter>
+101        </receiver>
+102    </application>
+103
+104</manifest>

@@ -5,6 +5,7 @@ INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
 INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
 INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\b52bcfdcf31d94cca620c420b788b902\workspace\transformed\material-1.10.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\76675e00b63c5cd91e20b700aaaf2892\workspace\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1bef3371a87bcfc5456dccef441b5bf4\workspace\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.preference:preference-ktx:1.2.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\4123383b6c98abf9cf68d49c79acd904\workspace\transformed\preference-ktx-1.2.1\AndroidManifest.xml:17:1-24:12
@@ -170,6 +171,8 @@ INJECTED from E:\App\app\src\main\AndroidManifest.xml
 INJECTED from E:\App\app\src\main\AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\b52bcfdcf31d94cca620c420b788b902\workspace\transformed\material-1.10.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\b52bcfdcf31d94cca620c420b788b902\workspace\transformed\material-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\76675e00b63c5cd91e20b700aaaf2892\workspace\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\76675e00b63c5cd91e20b700aaaf2892\workspace\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1bef3371a87bcfc5456dccef441b5bf4\workspace\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
@@ -274,6 +277,14 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\darsh\.gradle\caches\9.3.1\tra
 		INJECTED from E:\App\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from E:\App\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\6e099bf3db8d82d18bd3f1616fc122bf\workspace\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\68b1caa93ffc10f4742e14ff12fbfa4a\workspace\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:24:9-32:20
