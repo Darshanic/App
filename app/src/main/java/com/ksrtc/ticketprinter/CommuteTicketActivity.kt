@@ -61,6 +61,7 @@ class CommuteTicketActivity : AppCompatActivity() {
 
     private val prefsName = "manager_setup"
     private val reportPrefsName = "daily_report"
+    private val pendingRouteSelectionKey = "pending_route_selection_after_day_close"
     private var selectedFromStop = ""
     private var selectedToStop = ""
     private var selectedPassType = "None"
@@ -97,6 +98,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         setupPassengerCounters()
         setupStopSelectors()
         setupButtons()
+        maybeForceRouteSelectionAfterDayClose()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Commute Ticket"
@@ -423,9 +425,26 @@ class CommuteTicketActivity : AppCompatActivity() {
     }
 
     private fun closeTripAndSwitchRoute() {
+        getSharedPreferences(prefsName, MODE_PRIVATE)
+            .edit()
+            .putBoolean(pendingRouteSelectionKey, true)
+            .apply()
         saveTripSnapshot()
         resetTripCountersForNextRoute()
         showRouteSwitchDialog()
+    }
+
+    private fun maybeForceRouteSelectionAfterDayClose() {
+        val setupPrefs = getSharedPreferences(prefsName, MODE_PRIVATE)
+        val pendingRouteSelection = setupPrefs.getBoolean(pendingRouteSelectionKey, false)
+        if (!pendingRouteSelection) {
+            return
+        }
+
+        // Show route picker after initial UI bind so the user cannot continue on stale route.
+        btnPrint.post {
+            showRouteSwitchDialog(includeCurrentRoute = true, forceSelection = true)
+        }
     }
 
     private fun saveTripSnapshot() {
@@ -470,14 +489,18 @@ class CommuteTicketActivity : AppCompatActivity() {
             .apply()
     }
 
-    private fun showRouteSwitchDialog() {
+    private fun showRouteSwitchDialog(includeCurrentRoute: Boolean = false, forceSelection: Boolean = false) {
         val setupPrefs = getSharedPreferences(prefsName, MODE_PRIVATE)
         val division = setupPrefs.getString("division", "") ?: ""
         val currentRoute = setupPrefs.getString("route", "") ?: ""
-        val routes = routeDslParser.getRoutesByDivision(division)
-            .filter { it.displayLabel != currentRoute }
+        val routes = if (includeCurrentRoute) {
+            routeDslParser.getRoutesByDivision(division)
+        } else {
+            routeDslParser.getRoutesByDivision(division).filter { it.displayLabel != currentRoute }
+        }
 
         if (routes.isEmpty()) {
+            setupPrefs.edit().putBoolean(pendingRouteSelectionKey, false).apply()
             Toast.makeText(this, "No alternate routes available for this division.", Toast.LENGTH_LONG).show()
             return
         }
@@ -485,7 +508,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         val routeLabels = routes.map { it.displayLabel }.toTypedArray()
         var selectedIndex = 0
 
-        AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this)
             .setTitle("Select New Route")
             .setSingleChoiceItems(routeLabels, 0) { _, which ->
                 selectedIndex = which
@@ -498,6 +521,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                     .putString("route_source", selectedRoute.source)
                     .putString("route_destination", selectedRoute.destination)
                     .putString("bus_type", selectedRoute.busTypeCode)
+                    .putBoolean(pendingRouteSelectionKey, false)
                     .apply()
 
                 loadSetupData()
@@ -505,8 +529,12 @@ class CommuteTicketActivity : AppCompatActivity() {
                 resetForm()
                 Toast.makeText(this, "Trip closed and route switched to ${selectedRoute.displayLabel}", Toast.LENGTH_LONG).show()
             }
-            .setNegativeButton("Cancel", null)
-            .show()
+
+        if (!forceSelection) {
+            dialog.setNegativeButton("Cancel", null)
+        }
+
+        dialog.setCancelable(!forceSelection).show()
     }
 
     private fun resetForm() {

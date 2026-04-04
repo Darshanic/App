@@ -296,8 +296,9 @@ class TicketFormatter {
         canvas.drawText(routeText, contentLeft + contentWidth / 2f, 248f, paint)
 
         paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-        paint.textSize = 58f
-        canvas.drawText("SENIOR CITIZEN", contentLeft + contentWidth / 2f, 328f, paint)
+        val seniorLabel = "SENIOR CITIZEN"
+        paint.textSize = fitTextSize(paint, seniorLabel, 58f, 20f, contentWidth - 6f)
+        canvas.drawText(seniorLabel, contentLeft + contentWidth / 2f, 328f, paint)
 
         paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
         paint.textSize = 22f
