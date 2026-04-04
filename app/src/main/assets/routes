@@ -1,0 +1,196 @@
+Route, Mandya - Madduru, Madduru - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 11,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14
+Stop, Hanakere, 6, 8, 10, 12
+Stop, Gejjalagere, 6, 8, 10
+Stop, HKV Nagar, 6, 8
+Stop, Maddur Police Station, 6
+Stop, Madduru
+
+Route, Mandya - Gejjalagere Industry, Gejjalagere Industry - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 11G,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer - Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18
+Stop, Swarnasandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Gejjalagere, 6
+Stop, Gejjalagere Industry
+
+Route, Mandya - Tunkere, Tunkere - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 12,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Kachegere, 6
+Stop, Tunkere
+
+Route, Mandya - Tunkere, Tunkere - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 12C,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Chikkegowdana Doddi, 6
+Stop, Tunkere
+
+Route, Mandya - Tunkere, Tunkere - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 12H,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Hongalli Matha, 6
+Stop, Tunkere
+
+Route, Mandya - Besagarahalli, Besagarahalli - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 13,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16, 17
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hanakere, 6, 8, 10, 12, 14
+Stop, Chikkegowdana Doddi, 6, 8, 10, 12
+Stop, Muddangere, 6, 8, 10
+Stop, D N Pura, 6, 8
+Stop, Keremegaladoddi, 6
+Stop, Besagarahalli
+
+Route, Mandya - Besagarahalli, Besagarahalli - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 13S,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16, 17
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hanakere, 6, 8, 10, 12, 14
+Stop, Chikkegowdana Doddi, 6, 8, 10, 12
+Stop, Sollepura, 6, 8, 10
+Stop, Rampura, 6, 8
+Stop, Hombalegowdanadoddi, 6
+Stop, Besagarahalli
+
+Route, Mandya - K M Doddi, K M Doddi - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 101,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Navodaya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Bhootanahosuru, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Kabbanahalli, 6, 8, 10, 12, 14, 16, 17
+Stop, Soonagahalli, 6, 8, 10, 12, 14, 16
+Stop, Hemmige, 6, 8, 10, 12, 14
+Stop, Madarahalli, 6, 8, 10, 12
+Stop, Harahalli, 6, 8, 10
+Stop, Hanumanthanagar, 6, 8
+Stop, Gudigere, 6
+Stop, K M Doddi
+
+Route, Mandya - D A Kere, D A Kere - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 101DA,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Navodaya, 6, 8, 10, 12, 14, 16, 17
+Stop, Bhootanahosuru, 6, 8, 10, 12, 14, 16
+Stop, Kabbanahalli, 6, 8, 10, 12, 14
+Stop, Soonagahalli, 6, 8, 10, 12
+Stop, Hemmige, 6, 8, 10
+Stop, Madarahalli, 6, 8
+Stop, Chikkamarigowda Nagar, 6
+Stop, D A Kere
+
+Route, Mandya - K M Doddi, K M Doddi - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 101D,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Navodaya, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Bhootanahosuru, 6, 8, 10, 12, 14, 16, 17
+Stop, Kabbanahalli, 6, 8, 10, 12, 14, 16
+Stop, Soonagahalli, 6, 8, 10, 12, 14
+Stop, Hemmige, 6, 8, 10, 12
+Stop, Madarahalli, 6, 8, 10
+Stop, Chikkamarigowda Nagar, 6, 8
+Stop, D A Kere, 6
+Stop, K M Doddi
+
+Route, Mandya - Kannalli, Kannalli - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 102,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 22, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19, 22
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 19
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16
+Stop, Chennappana Doddi, 6, 8, 10, 12, 14
+Stop, Belur, 6, 8, 10, 12
+Stop, Kagehalla Doddi, 6, 8, 10
+Stop, Javanegowdana Doddi, 6, 8
+Stop, Kannalli
+
+Route, Mandya - Kannali, Kannali - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 102H,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 22, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19, 22
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 19
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16
+Stop, Chennappana Doddi, 6, 8, 10, 12, 14
+Stop, Belur, 6, 8, 10, 12
+Stop, B Yarahalli, 6, 8, 10
+Stop, Hucchalagere, 6, 8
+Stop, Kannali
+
+Route, Mandya - Kannali, Kannali - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 102G,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 23, 25, 26
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19, 23, 25
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 19, 23
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 19
+Stop, Chennappana Doddi, 6, 8, 10, 12, 14, 16
+Stop, Belur, 6, 8, 10, 12, 14
+Stop, B Yarahalli, 6, 8, 10, 12
+Stop, B Gowdagere, 6, 8, 10
+Stop, Hucchalagere, 6, 8
+Stop, Kannali

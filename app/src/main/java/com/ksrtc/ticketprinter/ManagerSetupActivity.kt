@@ -28,6 +28,7 @@ class ManagerSetupActivity : AppCompatActivity() {
     private lateinit var spDivision: Spinner
     private lateinit var tvUpRoute: TextView
     private lateinit var tvDownRoute: TextView
+    private lateinit var tvBusType: TextView
     private lateinit var btnAuthorize: Button
     private lateinit var btnBiometric: Button
     private lateinit var btnConfirmAdminScope: Button
@@ -40,14 +41,11 @@ class ManagerSetupActivity : AppCompatActivity() {
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
     private var biometricAvailable = false
+    private lateinit var routeDslParser: RouteDslParser
+    private var availableRoutes: List<RouteDslParser.ParsedRoute> = emptyList()
 
     private val prefsName = "manager_setup"
     private val managerPassKey = "1415"
-
-    private val routes = listOf(
-        "Select Route",
-        "Coming Soon"
-    )
 
     private val zoneToDivisions = mapOf(
         "Bengaluru Central" to listOf(
@@ -233,6 +231,7 @@ class ManagerSetupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager_setup)
+        routeDslParser = RouteDslParser(this)
 
         etPassKey = findViewById(R.id.etPassKeyInput)
         etBusNumbers = findViewById(R.id.etBusNumbers)
@@ -241,6 +240,7 @@ class ManagerSetupActivity : AppCompatActivity() {
         spDivision = findViewById(R.id.spDivision)
         tvUpRoute = findViewById(R.id.tvUpRoute)
         tvDownRoute = findViewById(R.id.tvDownRoute)
+        tvBusType = findViewById(R.id.tvBusType)
         btnAuthorize = findViewById(R.id.btnAuthorizePassKey)
         btnBiometric = findViewById(R.id.btnBiometric)
         btnConfirmAdminScope = findViewById(R.id.btnConfirmAdminScope)
@@ -309,8 +309,8 @@ class ManagerSetupActivity : AppCompatActivity() {
                 setAdminControlsEnabled(true)
                 bindZones("")
                 setDivisionItems("", "")
-                updateRouteComingSoon(false)
-                adminStatusText.text = "Biometric verified. Select Zone first, then Division. Route will show Coming Soon for now."
+                updateRouteListForDivision(false, "")
+                adminStatusText.text = "Biometric verified. Select Zone first, then Division to view available routes."
                 Toast.makeText(this@ManagerSetupActivity, "Biometric verified.", Toast.LENGTH_SHORT).show()
                 getSharedPreferences(prefsName, MODE_PRIVATE)
                     .edit()
@@ -360,6 +360,8 @@ class ManagerSetupActivity : AppCompatActivity() {
         val prefs = getSharedPreferences(prefsName, MODE_PRIVATE)
         etBusNumbers.setText(prefs.getString("bus_numbers", ""))
         switchConfirmBeforePrint.isChecked = prefs.getBoolean("confirm_before_print", true)
+        val savedRouteLabel = prefs.getString("route", "") ?: ""
+        val savedBusType = prefs.getString("bus_type", "") ?: ""
 
         val authMethod = prefs.getString("auth_method", "passkey") ?: "passkey"
         if (authMethod == "biometric") {
@@ -368,7 +370,7 @@ class ManagerSetupActivity : AppCompatActivity() {
             rbPassKey.isChecked = true
         }
 
-        updateRouteComingSoon(false)
+        updateRouteListForDivision(false, savedRouteLabel)
 
         adminScopeLocked = prefs.getBoolean("admin_scope_locked", false)
         if (adminScopeLocked) {
@@ -377,10 +379,11 @@ class ManagerSetupActivity : AppCompatActivity() {
             val division = prefs.getString("division", "") ?: ""
             bindZones(zone)
             setDivisionItems(zone, division)
-            updateRouteComingSoon(true)
+            updateRouteListForDivision(true, savedRouteLabel)
             lockAdminScopeUi()
-            adminStatusText.text = "Admin scope locked for this setup. Route remains Coming Soon until routes are wired."
+            adminStatusText.text = "Admin scope locked for this setup. You can still set route and bus numbers."
         } else {
+            updateRouteListForDivision(false, savedRouteLabel)
             adminStatusText.text = "Admin controls are locked. Choose authentication method above and authorize to unlock Zones/Division."
         }
     }
@@ -389,6 +392,8 @@ class ManagerSetupActivity : AppCompatActivity() {
         val selectedZone = spZone.selectedItem?.toString().orEmpty()
         val selectedDivision = spDivision.selectedItem?.toString().orEmpty()
         val busNumbers = etBusNumbers.text.toString().trim()
+        val selectedRouteLabel = spRoute.selectedItem?.toString().orEmpty()
+        val selectedRoute = availableRoutes.firstOrNull { it.displayLabel == selectedRouteLabel }
 
         if (!adminScopeLocked || selectedZone.isBlank() || selectedDivision.isBlank()) {
             Toast.makeText(this, "Authorize pass key and confirm zone/division scope first.", Toast.LENGTH_LONG).show()
@@ -400,12 +405,21 @@ class ManagerSetupActivity : AppCompatActivity() {
             return
         }
 
+        if (selectedRoute == null) {
+            Toast.makeText(this, "Select a valid route from the available routes for your division.", Toast.LENGTH_LONG).show()
+            return
+        }
+
         getSharedPreferences(prefsName, MODE_PRIVATE)
             .edit()
-            .putString("route", "Coming Soon")
+            .putString("route", selectedRoute.displayLabel)
+            .putString("route_number", selectedRoute.routeNumber)
+            .putString("route_source", selectedRoute.source)
+            .putString("route_destination", selectedRoute.destination)
             .putString("zone", selectedZone)
             .putString("division", selectedDivision)
             .putString("bus_numbers", busNumbers)
+            .putString("bus_type", selectedRoute.busTypeCode)
             .putBoolean("confirm_before_print", switchConfirmBeforePrint.isChecked)
             .putBoolean("admin_scope_locked", adminScopeLocked)
             .apply()
@@ -420,7 +434,7 @@ class ManagerSetupActivity : AppCompatActivity() {
         etBusNumbers.setText("")
         bindZones("")
         setDivisionItems("", "")
-        updateRouteComingSoon(false)
+        updateRouteListForDivision(false, "")
         adminUnlocked = false
         adminScopeLocked = false
         setAdminControlsEnabled(false)
@@ -436,13 +450,22 @@ class ManagerSetupActivity : AppCompatActivity() {
     }
 
     private fun setupRouteSpinner() {
-        spRoute.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, routes)
+        spRoute.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOf("Select Route"))
         spRoute.setSelection(0)
         spRoute.isEnabled = false
         spRoute.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: android.widget.AdapterView<*>?, view: View?, position: Int, id: Long) {
-                tvUpRoute.text = routes[position]
-                tvDownRoute.text = routes[position]
+                val selectedLabel = spRoute.selectedItem?.toString().orEmpty()
+                val selectedRoute = availableRoutes.firstOrNull { it.displayLabel == selectedLabel }
+                if (selectedRoute != null) {
+                    tvUpRoute.text = "${selectedRoute.source} -> ${selectedRoute.destination}"
+                    tvDownRoute.text = "${selectedRoute.destination} -> ${selectedRoute.source}"
+                    tvBusType.text = selectedRoute.busTypeCode
+                } else {
+                    tvUpRoute.text = "-"
+                    tvDownRoute.text = "-"
+                    tvBusType.text = "-"
+                }
             }
 
             override fun onNothingSelected(parent: android.widget.AdapterView<*>?) {
@@ -462,10 +485,10 @@ class ManagerSetupActivity : AppCompatActivity() {
                 val selectedZone = spZone.selectedItem?.toString().orEmpty()
                 if (selectedZone.startsWith("Select")) {
                     setDivisionItems("", "")
-                    updateRouteComingSoon(false)
+                    updateRouteListForDivision(false, "")
                 } else {
                     setDivisionItems(selectedZone, "")
-                    updateRouteComingSoon(false)
+                    updateRouteListForDivision(false, "")
                 }
             }
 
@@ -508,9 +531,9 @@ class ManagerSetupActivity : AppCompatActivity() {
                 }
                 val selectedDivision = spDivision.selectedItem?.toString().orEmpty()
                 if (selectedDivision.isBlank() || selectedDivision.startsWith("Select")) {
-                    updateRouteComingSoon(false)
+                    updateRouteListForDivision(false, "")
                 } else {
-                    updateRouteComingSoon(true)
+                    updateRouteListForDivision(true, "")
                 }
             }
 
@@ -531,8 +554,8 @@ class ManagerSetupActivity : AppCompatActivity() {
         setAdminControlsEnabled(true)
         bindZones("")
         setDivisionItems("", "")
-        updateRouteComingSoon(false)
-        adminStatusText.text = "Pass key accepted. Select Zone first, then Division. Route will show Coming Soon for now."
+        updateRouteListForDivision(false, "")
+        adminStatusText.text = "Pass key accepted. Select Zone first, then Division to view available routes."
         Toast.makeText(this, "Pass key verified.", Toast.LENGTH_SHORT).show()
         getSharedPreferences(prefsName, MODE_PRIVATE)
             .edit()
@@ -567,7 +590,7 @@ class ManagerSetupActivity : AppCompatActivity() {
         rgAuthMethod.visibility = View.GONE
         findViewById<TextView>(R.id.tvPassKeyLabel).visibility = View.GONE
         btnConfirmAdminScope.isEnabled = false
-        adminStatusText.text = "Admin scope locked for this setup. Route will remain Coming Soon until route data is added."
+        adminStatusText.text = "Admin scope locked for this setup. Update route, bus type and bus numbers as needed."
     }
 
     private fun setAdminControlsEnabled(enabled: Boolean) {
@@ -576,12 +599,31 @@ class ManagerSetupActivity : AppCompatActivity() {
         btnConfirmAdminScope.isEnabled = enabled
     }
 
-    private fun updateRouteComingSoon(enabled: Boolean) {
-        spRoute.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOf("Coming Soon"))
-        spRoute.setSelection(0)
-        spRoute.isEnabled = enabled
-        tvUpRoute.text = "Coming Soon"
-        tvDownRoute.text = "Coming Soon"
+    private fun updateRouteListForDivision(enabled: Boolean, preferredRoute: String = "") {
+        val selectedDivision = spDivision.selectedItem?.toString().orEmpty()
+        availableRoutes = if (selectedDivision.isBlank() || selectedDivision.startsWith("Select")) {
+            emptyList()
+        } else {
+            routeDslParser.getRoutesByDivision(selectedDivision)
+        }
+
+        val routeLabels = mutableListOf("Select Route")
+        routeLabels.addAll(availableRoutes.map { it.displayLabel })
+
+        if (availableRoutes.isEmpty()) {
+            routeLabels.add("No routes available for this division")
+        }
+
+        spRoute.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, routeLabels)
+        val preferredIndex = routeLabels.indexOf(preferredRoute).takeIf { it >= 0 } ?: 0
+        spRoute.setSelection(preferredIndex)
+        spRoute.isEnabled = enabled && availableRoutes.isNotEmpty()
+
+        if (preferredIndex == 0) {
+            tvUpRoute.text = "-"
+            tvDownRoute.text = "-"
+            tvBusType.text = "-"
+        }
     }
 
     private fun hideKeyboard(view: View) {

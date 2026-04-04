@@ -2,6 +2,7 @@ package com.sktc.ticketprinter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.EditTextPreference
 import androidx.preference.PreferenceFragmentCompat
 
 class SettingsActivity : AppCompatActivity() {
@@ -25,6 +26,21 @@ class SettingsActivity : AppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.preferences, rootKey)
+
+            val childRatePreference = findPreference<EditTextPreference>("child_ticket_rate")
+            childRatePreference?.summaryProvider = EditTextPreference.SimpleSummaryProvider.getInstance()
+            childRatePreference?.setOnBindEditTextListener { editText ->
+                editText.inputType = android.text.InputType.TYPE_CLASS_NUMBER
+            }
+            childRatePreference?.setOnPreferenceChangeListener { _, newValue ->
+                val entered = newValue?.toString()?.trim().orEmpty()
+                val rate = entered.toIntOrNull()
+                if (rate == null || rate !in 0..100) {
+                    false
+                } else {
+                    true
+                }
+            }
         }
     }
 }

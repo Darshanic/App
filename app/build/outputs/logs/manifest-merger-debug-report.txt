@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
-INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-46:12
+ADDED from E:\App\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from E:\App\app\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\b52bcfdcf31d94cca620c420b788b902\workspace\transformed\material-1.10.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1e5a895ebb49f4fb7aa167fb825edeca\workspace\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\76675e00b63c5cd91e20b700aaaf2892\workspace\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -80,9 +80,17 @@ uses-permission#android.permission.BLUETOOTH_SCAN
 ADDED from E:\App\app\src\main\AndroidManifest.xml:7:5-73
 	android:name
 		ADDED from E:\App\app\src\main\AndroidManifest.xml:7:22-70
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\App\app\src\main\AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:8:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from E:\App\app\src\main\AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:9:22-77
 application
-ADDED from E:\App\app\src\main\AndroidManifest.xml:9:5-44:19
-INJECTED from E:\App\app\src\main\AndroidManifest.xml:9:5-44:19
+ADDED from E:\App\app\src\main\AndroidManifest.xml:11:5-51:19
+INJECTED from E:\App\app\src\main\AndroidManifest.xml:11:5-51:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\b52bcfdcf31d94cca620c420b788b902\workspace\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\b52bcfdcf31d94cca620c420b788b902\workspace\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\darsh\.gradle\caches\9.3.1\transforms\1bef3371a87bcfc5456dccef441b5bf4\workspace\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -106,65 +114,73 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\darsh\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\darsh\.gradle\caches\9.3.1\transforms\f0f555e5fe8880d894b40bcb12f4eca4\workspace\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:14:9-41
 	android:roundIcon
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:13:9-50
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:15:9-50
 	android:icon
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:11:9-45
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:13:9-45
 	android:allowBackup
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:12:9-35
 	android:theme
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:15:9-51
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:17:9-51
 activity#com.sktc.ticketprinter.HomeActivity
-ADDED from E:\App\app\src\main\AndroidManifest.xml:16:9-23:20
+ADDED from E:\App\app\src\main\AndroidManifest.xml:18:9-25:20
 	android:exported
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:18:13-36
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:20:13-36
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:17:13-63
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:19:13-63
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\App\app\src\main\AndroidManifest.xml:19:13-22:29
+ADDED from E:\App\app\src\main\AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from E:\App\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from E:\App\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\App\app\src\main\AndroidManifest.xml:21:17-77
+ADDED from E:\App\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:21:27-74
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:23:27-74
 activity#com.sktc.ticketprinter.MainActivity
-ADDED from E:\App\app\src\main\AndroidManifest.xml:25:9-28:46
+ADDED from E:\App\app\src\main\AndroidManifest.xml:27:9-30:55
 	android:label
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:28:13-43
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:30:13-52
 	android:exported
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:27:13-37
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:29:13-37
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:26:13-63
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:28:13-63
+activity#com.sktc.ticketprinter.CommuteTicketActivity
+ADDED from E:\App\app\src\main\AndroidManifest.xml:32:9-35:46
+	android:label
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:35:13-43
+	android:exported
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:33:13-72
 activity#com.sktc.ticketprinter.ManagerSetupActivity
-ADDED from E:\App\app\src\main\AndroidManifest.xml:30:9-33:45
+ADDED from E:\App\app\src\main\AndroidManifest.xml:37:9-40:45
 	android:label
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:33:13-42
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:40:13-42
 	android:exported
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:32:13-37
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:31:13-71
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:38:13-71
 activity#com.sktc.ticketprinter.DailyReportActivity
-ADDED from E:\App\app\src\main\AndroidManifest.xml:35:9-38:44
+ADDED from E:\App\app\src\main\AndroidManifest.xml:42:9-45:44
 	android:label
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:38:13-41
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:45:13-41
 	android:exported
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:37:13-37
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:44:13-37
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:36:13-70
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:43:13-70
 activity#com.sktc.ticketprinter.SettingsActivity
-ADDED from E:\App\app\src\main\AndroidManifest.xml:40:9-43:40
+ADDED from E:\App\app\src\main\AndroidManifest.xml:47:9-50:40
 	android:label
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:43:13-37
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:50:13-37
 	android:exported
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:42:13-37
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:41:13-67
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:48:13-67
 uses-sdk
 INJECTED from E:\App\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\App\app\src\main\AndroidManifest.xml

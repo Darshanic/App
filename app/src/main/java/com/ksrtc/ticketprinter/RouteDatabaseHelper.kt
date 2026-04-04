@@ -7,11 +7,10 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import java.io.BufferedReader
-import java.io.File
-import java.io.FileReader
+import java.io.InputStreamReader
 
-class RouteDatabaseHelper(context: Context) :
-    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class RouteDatabaseHelper(private val appContext: Context) :
+    SQLiteOpenHelper(appContext, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private const val DATABASE_VERSION = 1
@@ -55,13 +54,6 @@ class RouteDatabaseHelper(context: Context) :
     }
 
     private fun parseRoutesFile(db: SQLiteDatabase) {
-        val file = File("e:/App/english_routes.txt")
-        if (!file.exists()) {
-             Log.e("RouteDB", "english_routes.txt not found! Seeding sample data.")
-             seedFallbackData(db)
-             return
-        }
-
         var stopIdCounter = 1
         var stageIdCounter = 1
         var currentStageNum = 1
@@ -70,7 +62,8 @@ class RouteDatabaseHelper(context: Context) :
         val stopMap = mutableMapOf<String, Int>()
 
         try {
-            BufferedReader(FileReader(file)).use { reader ->
+            val stream = appContext.assets.open("routes")
+            BufferedReader(InputStreamReader(stream)).use { reader ->
                 var line: String?
                 while (reader.readLine().also { line = it } != null) {
                     val parts = line!!.split(",").map { it.trim() }
@@ -109,7 +102,7 @@ class RouteDatabaseHelper(context: Context) :
                 }
             }
         } catch (e: Exception) {
-            Log.e("RouteDB", "Error parsing routes file", e)
+            Log.e("RouteDB", "routes file not available or invalid. Seeding fallback data.", e)
             seedFallbackData(db)
         }
     }

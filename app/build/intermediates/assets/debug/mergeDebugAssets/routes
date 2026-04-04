@@ -1,0 +1,29 @@
+Route, Mandya - Madduru, Madduru - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 11,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14
+Stop, Hanakere, 6, 8, 10, 12
+Stop, Gejjalagere, 6, 8, 10
+Stop, HKV Nagar, 6, 8
+Stop, Maddur Police Station, 6
+Stop, Madduru
+
+Route, Mandya - Gejjalagere Industry, Gejjalagere Industry - Mandya,
+Division: Mandya Central,
+Type: City_Bus, Route No.: 11G,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer - Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18
+Stop, Swarnasandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Gejjalagere, 6
+Stop, Gejjalagere Industry
