@@ -4,16 +4,16 @@
         "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\layout\\activity_splash.xml"
     },
     {
-        "merged": "com.sktc.ticketprinter.app-debug-41:/layout_activity_manager_setup.xml.flat",
-        "source": "com.sktc.ticketprinter.app-main-43:/layout/activity_manager_setup.xml"
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\drawable_logo_circle_mask.xml.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\drawable\\logo_circle_mask.xml"
     },
     {
         "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\layout_activity_commute_ticket.xml.flat",
         "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\layout\\activity_commute_ticket.xml"
     },
     {
-        "merged": "com.sktc.ticketprinter.app-debug-41:/layout_activity_home.xml.flat",
-        "source": "com.sktc.ticketprinter.app-main-43:/layout/activity_home.xml"
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
         "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\layout_activity_daily_report.xml.flat",
@@ -22,6 +22,14 @@
     {
         "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\layout_activity_home.xml.flat",
         "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\drawable_logo.png.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\mipmap_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\mipmap\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\layout_activity_manager_setup.xml.flat",
@@ -36,24 +44,24 @@
         "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\xml\\preferences.xml"
     },
     {
-        "merged": "com.sktc.ticketprinter.app-debug-41:/layout_activity_main.xml.flat",
-        "source": "com.sktc.ticketprinter.app-main-43:/layout/activity_main.xml"
-    },
-    {
         "merged": "com.sktc.ticketprinter.app-debug-41:/layout_activity_splash.xml.flat",
         "source": "com.sktc.ticketprinter.app-main-43:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\mipmap_ic_launcher.png.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\mipmap\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.sktc.ticketprinter.app-debug-41:/layout_activity_commute_ticket.xml.flat",
-        "source": "com.sktc.ticketprinter.app-main-43:/layout/activity_commute_ticket.xml"
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\drawable_splash_empty_icon.xml.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\drawable\\splash_empty_icon.xml"
     },
     {
-        "merged": "com.sktc.ticketprinter.app-debug-41:/layout_activity_daily_report.xml.flat",
-        "source": "com.sktc.ticketprinter.app-main-43:/layout/activity_daily_report.xml"
+        "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-main-43:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "C:\\Users\\darsh\\.gradle\\daemon\\9.3.1\\com.sktc.ticketprinter.app-debug-41:\\menu_main_menu.xml.flat",

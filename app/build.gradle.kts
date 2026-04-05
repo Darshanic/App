@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-val appVersionName = "2.1.3"
+val appVersionName = "2.2.0"
 
 android {
     namespace = "com.sktc.ticketprinter"
@@ -13,7 +13,7 @@ android {
         applicationId = "com.sktc.ticketprinter"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
+        versionCode = 8
         versionName = appVersionName
     }
 

@@ -118,9 +118,9 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\darsh\.gradle\cach
 	android:label
 		ADDED from E:\App\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:16:9-50
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from E:\App\app\src\main\AndroidManifest.xml:14:9-45
+		ADDED from E:\App\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
 		ADDED from E:\App\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme

@@ -287,7 +287,7 @@ class ManagerSetupActivity : AppCompatActivity() {
         loadSetup()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Manager Setup"
+        supportActionBar?.title = getString(R.string.title_manager_setup)
     }
 
     private fun setupBiometric() {
@@ -299,7 +299,7 @@ class ManagerSetupActivity : AppCompatActivity() {
 
         if (!biometricAvailable) {
             rbBiometric.isEnabled = false
-            Toast.makeText(this, "Biometric not available on this device", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.manager_biometric_not_available), Toast.LENGTH_SHORT).show()
         }
 
         val executor = ContextCompat.getMainExecutor(this)
@@ -311,8 +311,8 @@ class ManagerSetupActivity : AppCompatActivity() {
                 bindZones("")
                 setDivisionItems("", "")
                 updateRouteListForDivision(false, "")
-                adminStatusText.text = "Biometric verified. Select Zone first, then Division to view available routes."
-                Toast.makeText(this@ManagerSetupActivity, "Biometric verified.", Toast.LENGTH_SHORT).show()
+                adminStatusText.text = getString(R.string.manager_biometric_verified_status)
+                Toast.makeText(this@ManagerSetupActivity, getString(R.string.manager_biometric_verified), Toast.LENGTH_SHORT).show()
                 getSharedPreferences(prefsName, MODE_PRIVATE)
                     .edit()
                     .putString("auth_method", "biometric")
@@ -321,19 +321,19 @@ class ManagerSetupActivity : AppCompatActivity() {
 
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                 super.onAuthenticationError(errorCode, errString)
-                Toast.makeText(this@ManagerSetupActivity, "Biometric error: $errString", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ManagerSetupActivity, getString(R.string.manager_biometric_error, errString), Toast.LENGTH_SHORT).show()
             }
 
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
-                Toast.makeText(this@ManagerSetupActivity, "Biometric authentication failed. Try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ManagerSetupActivity, getString(R.string.manager_biometric_failed), Toast.LENGTH_SHORT).show()
             }
         })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Manager Authentication")
-            .setSubtitle("Authenticate using your biometric data")
-            .setNegativeButtonText("Cancel")
+            .setTitle(R.string.manager_auth_title)
+            .setSubtitle(R.string.manager_auth_subtitle)
+            .setNegativeButtonText(R.string.cancel)
             .build()
     }
 
@@ -351,7 +351,7 @@ class ManagerSetupActivity : AppCompatActivity() {
 
     private fun authorizeBiometric() {
         if (!biometricAvailable) {
-            Toast.makeText(this, "Biometric not available on this device.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_biometric_not_available), Toast.LENGTH_LONG).show()
             return
         }
         biometricPrompt.authenticate(promptInfo)
@@ -382,10 +382,10 @@ class ManagerSetupActivity : AppCompatActivity() {
             setDivisionItems(zone, division)
             updateRouteListForDivision(true, savedRouteLabel)
             lockAdminScopeUi()
-            adminStatusText.text = "Admin scope locked for this setup. You can still set route and bus numbers."
+            adminStatusText.text = getString(R.string.manager_scope_locked_setup)
         } else {
             updateRouteListForDivision(false, savedRouteLabel)
-            adminStatusText.text = "Admin controls are locked. Choose authentication method above and authorize to unlock Zones/Division."
+            adminStatusText.text = getString(R.string.manager_controls_locked_choose_auth)
         }
     }
 
@@ -397,17 +397,17 @@ class ManagerSetupActivity : AppCompatActivity() {
         val selectedRoute = availableRoutes.firstOrNull { it.displayLabel == selectedRouteLabel }
 
         if (!adminScopeLocked || selectedZone.isBlank() || selectedDivision.isBlank()) {
-            Toast.makeText(this, "Authorize pass key and confirm zone/division scope first.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_authorize_then_confirm), Toast.LENGTH_LONG).show()
             return
         }
 
         if (busNumbers.isBlank()) {
-            Toast.makeText(this, "Enter at least one bus number.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_enter_bus_number), Toast.LENGTH_LONG).show()
             return
         }
 
         if (selectedRoute == null) {
-            Toast.makeText(this, "Select a valid route from the available routes for your division.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_select_valid_route), Toast.LENGTH_LONG).show()
             return
         }
 
@@ -426,7 +426,7 @@ class ManagerSetupActivity : AppCompatActivity() {
             .apply()
 
         hideKeyboard(etBusNumbers)
-        Toast.makeText(this, "Manager setup saved. Commute pass config is active.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.manager_setup_saved), Toast.LENGTH_SHORT).show()
         finish()
     }
 
@@ -449,9 +449,9 @@ class ManagerSetupActivity : AppCompatActivity() {
             rbPassKey.isChecked = true
         }
         updateAuthMethodUI()
-        adminStatusText.text = "Admin controls are locked. Choose pass key or biometric authentication and authorize to configure zones/division."
+        adminStatusText.text = getString(R.string.manager_controls_locked_reauth)
         switchConfirmBeforePrint.isChecked = true
-        Toast.makeText(this, "Setup reset. Re-authorize to configure zones/division.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.manager_setup_reset), Toast.LENGTH_SHORT).show()
     }
 
     private fun setupRouteSpinner() {
@@ -551,7 +551,7 @@ class ManagerSetupActivity : AppCompatActivity() {
     private fun authorizePassKey() {
         val entered = etPassKey.text.toString().trim()
         if (entered != managerPassKey) {
-            Toast.makeText(this, "Invalid pass key. Zones and divisions remain locked.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_invalid_passkey), Toast.LENGTH_LONG).show()
             return
         }
         hideKeyboard(etPassKey)
@@ -560,8 +560,8 @@ class ManagerSetupActivity : AppCompatActivity() {
         bindZones("")
         setDivisionItems("", "")
         updateRouteListForDivision(false, "")
-        adminStatusText.text = "Pass key accepted. Select Zone first, then Division to view available routes."
-        Toast.makeText(this, "Pass key verified.", Toast.LENGTH_SHORT).show()
+        adminStatusText.text = getString(R.string.manager_passkey_accepted)
+        Toast.makeText(this, getString(R.string.manager_passkey_verified), Toast.LENGTH_SHORT).show()
         getSharedPreferences(prefsName, MODE_PRIVATE)
             .edit()
             .putString("auth_method", "passkey")
@@ -570,20 +570,20 @@ class ManagerSetupActivity : AppCompatActivity() {
 
     private fun confirmAdminScope() {
         if (!adminUnlocked) {
-            Toast.makeText(this, "Authorize with pass key or biometric first to access admin controls.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_authorize_admin_first), Toast.LENGTH_LONG).show()
             return
         }
 
         val zone = spZone.selectedItem?.toString().orEmpty()
         val division = spDivision.selectedItem?.toString().orEmpty()
         if (zone.startsWith("Select") || zone.isBlank() || division.startsWith("Select") || division.isBlank()) {
-            Toast.makeText(this, "Select valid Zone and Division before confirming.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.manager_select_zone_division), Toast.LENGTH_LONG).show()
             return
         }
 
         adminScopeLocked = true
         lockAdminScopeUi()
-        Toast.makeText(this, "Admin scope locked. You can now modify remaining fields only.", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.manager_scope_locked), Toast.LENGTH_LONG).show()
     }
 
     private fun lockAdminScopeUi() {
@@ -595,7 +595,7 @@ class ManagerSetupActivity : AppCompatActivity() {
         rgAuthMethod.visibility = View.GONE
         findViewById<TextView>(R.id.tvPassKeyLabel).visibility = View.GONE
         btnConfirmAdminScope.isEnabled = false
-        adminStatusText.text = "Admin scope locked for this setup. Update route, bus type and bus numbers as needed."
+        adminStatusText.text = getString(R.string.manager_scope_locked_update_fields)
     }
 
     private fun setAdminControlsEnabled(enabled: Boolean) {

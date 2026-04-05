@@ -72,12 +72,6 @@ class RouteDslParser(private val context: Context) {
                 return
             }
 
-            val normalizedBusType = normalizeToken(busTypeCode)
-            if (normalizedBusType.contains("CITY") && routeNumber.isBlank()) {
-                Log.w("RouteDslParser", "Skipping city route with missing route number: $upRouteLabel")
-                return
-            }
-
             val expectedStops = stops.size
             val normalizedFares = MutableList(expectedStops) { emptyList<Double>() }
             var valid = true

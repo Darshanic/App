@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Daily Report"
+            android:text="@string/title_daily_report"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Report Date: -"
+            android:text="@string/report_date_default"
             android:textSize="15sp" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Division: -"
+            android:text="@string/report_division_default"
             android:textSize="15sp" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Bus Numbers: -"
+            android:text="@string/report_bus_numbers_default"
             android:textSize="15sp" />
 
         <View
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ticket Summary"
+                android:text="@string/report_ticket_summary"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
@@ -72,7 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tickets Issued" />
+                    android:text="@string/report_tickets_issued" />
 
                 <TextView
                     android:id="@+id/tvTickets"
@@ -92,7 +92,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Adults" />
+                    android:text="@string/report_adults" />
 
                 <TextView
                     android:id="@+id/tvAdults"
@@ -112,7 +112,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Children" />
+                    android:text="@string/report_children" />
 
                 <TextView
                     android:id="@+id/tvChildren"
@@ -132,7 +132,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Passes" />
+                    android:text="@string/report_passes" />
 
                 <TextView
                     android:id="@+id/tvPasses"
@@ -152,7 +152,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Luggage Tickets" />
+                    android:text="@string/report_luggage_tickets" />
 
                 <TextView
                     android:id="@+id/tvLuggage"
@@ -172,7 +172,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Total Passengers"
+                    android:text="@string/report_total_passengers"
                     android:textStyle="bold" />
 
                 <TextView
@@ -196,7 +196,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total Revenue"
+                android:text="@string/report_total_revenue"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
@@ -204,7 +204,7 @@
                 android:id="@+id/tvRevenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₹0.00"
+                android:text="@string/report_revenue_default"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/panel_success_text" />
@@ -215,7 +215,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Print Current Report"
+            android:text="@string/report_print_current"
             android:textAllCaps="false"
             android:textStyle="bold" />
 
@@ -224,7 +224,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Closed Day Reports"
+            android:text="@string/report_closed_reports"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -233,7 +233,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="No closed reports yet."
+            android:text="@string/report_no_closed"
             android:textSize="14sp" />
 
         <LinearLayout
@@ -248,7 +248,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Ticket History (Newest First): 0"
+            android:text="@string/report_history_default"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -257,7 +257,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="No tickets issued yet."
+            android:text="@string/report_history_empty"
             android:textSize="14sp" />
 
         <LinearLayout

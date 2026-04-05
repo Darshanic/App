@@ -27,14 +27,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Division"
+                    android:text="@string/commute_division"
                     android:textStyle="bold"
                     android:textSize="14sp" />
                 <TextView
                     android:id="@+id/tvDivision"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Loading..."
+                    android:text="@string/commute_loading"
                     android:textSize="16sp"
                     android:textColor="@color/text_accent" />
             </LinearLayout>
@@ -47,14 +47,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Date"
+                    android:text="@string/commute_date"
                     android:textStyle="bold"
                     android:textSize="14sp" />
                 <TextView
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Loading..."
+                    android:text="@string/commute_loading"
                     android:textSize="16sp"
                     android:textColor="@color/text_accent" />
             </LinearLayout>
@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Route Details"
+                android:text="@string/commute_route_details"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/text_primary"
@@ -86,7 +86,7 @@
                 android:id="@+id/tvRouteNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Route: Coming Soon"
+                android:text="@string/commute_route_coming_soon"
                 android:textSize="14sp"
                 android:paddingBottom="4dp" />
 
@@ -94,7 +94,7 @@
                 android:id="@+id/tvRouteInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="From – To: (Select stops below)"
+                android:text="@string/commute_from_to_select"
                 android:textSize="14sp"
                 android:textColor="@color/text_secondary" />
         </LinearLayout>
@@ -115,7 +115,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="From Stop"
+                android:text="@string/commute_from_stop"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:paddingBottom="8dp" />
@@ -129,7 +129,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="To Stop"
+                android:text="@string/commute_to_stop"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:paddingBottom="8dp" />
@@ -156,7 +156,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Passengers"
+                android:text="@string/commute_passengers"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/text_primary"
@@ -183,7 +183,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="2"
-                    android:text="Adults: 1"
+                    android:text="@string/commute_adults_default"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:background="@color/counter_background" />
@@ -219,7 +219,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="2"
-                    android:text="Children: 0"
+                    android:text="@string/commute_children_default"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:background="@color/counter_background" />
@@ -237,7 +237,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pass Type"
+                android:text="@string/commute_pass_type"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:paddingBottom="6dp" />
@@ -252,7 +252,7 @@
                 android:id="@+id/tvPassRuleHint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Student Pass | Senior Discount Pass | Day Pass"
+                android:text="@string/commute_pass_hint"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
                 android:paddingBottom="12dp" />
@@ -277,7 +277,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="2"
-                    android:text="Luggage: 0"
+                    android:text="@string/commute_luggage_default"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:background="@color/counter_background" />
@@ -312,7 +312,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total Fare:"
+                android:text="@string/commute_total_fare"
                 android:textStyle="bold"
                 android:textSize="18sp" />
 
@@ -321,7 +321,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TOT: ₹0.00"
+                android:text="@string/commute_total_default"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_accent"
@@ -341,7 +341,7 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
-                android:text="Reset"
+                android:text="@string/commute_reset"
                 android:textSize="16sp"
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/btn_neutral" />
@@ -351,7 +351,7 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1.5"
-                android:text="Print Ticket"
+                android:text="@string/commute_print"
                 android:textSize="16sp"
                 android:layout_marginEnd="8dp"
                 android:textStyle="bold"
@@ -363,7 +363,7 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_weight="1"
-                android:text="Report"
+                android:text="@string/commute_report"
                 android:textSize="16sp"
                 android:backgroundTint="@color/btn_success" />
         </LinearLayout>
@@ -372,7 +372,7 @@
             android:id="@+id/btnDayClose"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="Day-Close"
+            android:text="@string/commute_day_close"
             android:textStyle="bold"
             android:textSize="15sp"
             android:layout_marginTop="8dp"

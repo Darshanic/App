@@ -714,6 +714,15 @@ Stop, Bannahalli, 6, 8
 Stop, Bettahalli, 6
 Stop, Neralekere
 
+Route, Mandya - Kollegala, Kollegala - Mandya,
+Division: Mandya,
+Type: Express, Route No.: ,
+Stop, Mandya, 30, 45, 60, 85
+Stop, K.M.Doddi, 30, 45, 70
+Stop, Malavalli, 30, 55
+Stop, Belakawadi, 30
+Stop, Kollegala
+
 
 Route, Induvalu - Neralekere, Neralekere - Induvalu,
 Division: Induvalu,
@@ -728,3 +737,76 @@ Stop, Peehalli, 6, 8, 10
 Stop, Bannahalli, 6, 8
 Stop, Bettahalli, 6
 Stop, Neralekere
+
+Route, Mandya - Krishnagiri, Krishnagiri - Mandya,
+Division: Mandya,
+Type: Express, Route No.: ,
+Stop, Mandya, 30, 45, 60, 80, 110, 140, 170, 195, 220
+Stop, K.M.Doddi, 30, 45, 70, 100, 130, 160, 185, 210
+Stop, Halaguru, 30, 55, 85, 115, 145, 170, 195
+Stop, Sathnuru, 30, 60, 90, 120, 145, 170
+Stop, Kanakapura, 30, 65, 95, 120, 145
+Stop, Denkanikottai, 30, 65, 90, 115
+Stop, Kelamangala, 30, 60, 85
+Stop, Uddanapalli, 30, 60
+Stop, Shulagiri, 30
+Stop, Krishnagiri
+
+Route, Mandya - Mangaluru, Mangaluru - Mandya,
+Division: Mandya,
+Type: Express, Route No.: ,
+Stop, Mandya, 30, 45, 60, 75, 90, 105, 120, 135, 150, 170, 200, 225, 250, 275, 295, 310, 325, 338, 345, 350
+Stop, Srirangapattana, 30, 30, 45, 60, 75, 90, 105, 120, 140, 170, 195, 220, 245, 265, 280, 295, 308, 315, 320
+Stop, Belagola, 30, 30, 45, 60, 75, 90, 105, 125, 155, 180, 205, 230, 250, 265, 280, 293, 300, 305
+Stop, Ilawala, 30, 30, 45, 60, 75, 90, 110, 140, 165, 190, 215, 235, 250, 265, 278, 285, 290
+Stop, Sagarakatte, 30, 30, 45, 60, 75, 95, 125, 150, 175, 200, 220, 235, 250, 263, 270, 275
+Stop, K.R.Nagar, 30, 30, 45, 60, 80, 110, 135, 160, 185, 205, 220, 235, 248, 255, 260
+Stop, Chunchanakatte, 30, 30, 45, 65, 95, 120, 145, 170, 190, 205, 220, 233, 240, 245
+Stop, Kitturu, 30, 30, 50, 80, 105, 130, 155, 175, 190, 205, 218, 225, 230
+Stop, Bettadapura, 30, 35, 65, 90, 115, 140, 160, 175, 190, 203, 210, 215
+Stop, Kushalanagara, 30, 50, 75, 100, 125, 145, 160, 175, 188, 195, 200
+Stop, Suntikoppa, 30, 55, 80, 105, 125, 140, 155, 168, 175, 180
+Stop, Madikeri, 30, 50, 75, 95, 110, 125, 138, 145, 150
+Stop, Sampaje, 30, 50, 70, 85, 100, 113, 120, 125
+Stop, Sulya, 30, 45, 60, 75, 88, 95, 100
+Stop, Putturu, 30, 35, 50, 63, 70, 75
+Stop, Kabaka, 30, 30, 43, 50, 55
+Stop, Mani, 30, 32, 35, 40
+Stop, Kalladka, 30, 35, 40
+Stop, B.C.Road-Bantwala, 30, 35
+Stop, Padil, 30
+Stop, Mangaluru (State Bank)
+
+Route, Mandya - Sulthan Bathery, Sulthan Bathery - Mandya,
+Division: Mandya,
+Type: Express, Route No.: ,
+Stop, Mandya, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 175, 182
+Stop, Srirangapattana, 30, 30, 45, 60, 75, 90, 105, 120, 135, 145, 152
+Stop, Mysuru, 30, 30, 45, 60, 75, 90, 105, 120, 130, 137
+Stop, Kadakola, 30, 30, 45, 60, 75, 90, 105, 115, 122
+Stop, Nanjanagudu, 30, 30, 45, 60, 75, 90, 100, 107
+Stop, Beguru, 30, 30, 45, 60, 75, 85, 92
+Stop, Gundlupete, 30, 30, 45, 60, 70, 77
+Stop, Madduru, 30, 30, 45, 55, 62
+Stop, Ponkuzhi, 30, 30, 40, 47
+Stop, Mathunga, 30, 35, 40
+Stop, Kalloor, 30, 35
+Stop, Moolankavu, 30
+Stop, Sultan Bathery
+
+Route, Bengaluru (Majestic) - Mysuru, Mysuru - Bengaluru (Majestic),
+Division: Mandya,
+Type: Express, Route No.: ,
+Stop, Bengaluru (Majestic), 30, 45, 60, 75, 90, 105, 120, 135, 150, 162, 172, 180
+Stop, Bengaluru (Mysuru Road), 30, 45, 60, 75, 90, 105, 120, 135, 147, 157, 165
+Stop, Kengeri, 30, 45, 60, 75, 90, 105, 120, 132, 142, 150
+Stop, Kumbalagudu, 30, 45, 60, 75, 90, 105, 117, 127, 135
+Stop, Bidadi, 30, 45, 60, 75, 90, 102, 112, 120
+Stop, Ramanagara, 30, 45, 60, 75, 87, 97, 105
+Stop, Chennapattana, 30, 45, 60, 72, 82, 90
+Stop, Madduru, 30, 45, 57, 67, 75
+Stop, Hanakere, 30, 42, 52, 60
+Stop, Mandya, 30, 40, 48
+Stop, Induvalu, 30, 38
+Stop, Srirangapattana, 30
+Stop, Mysuru

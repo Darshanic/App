@@ -70,7 +70,7 @@ class DailyReportActivity : AppCompatActivity() {
         bindReport()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Daily Report"
+        supportActionBar?.title = getString(R.string.title_daily_report)
     }
 
     override fun onResume() {
@@ -93,16 +93,16 @@ class DailyReportActivity : AppCompatActivity() {
         val luggage = if (hasTodayData) reportPrefs.getInt("luggage", 0) else 0
         val revenue = if (hasTodayData) reportPrefs.getFloat("revenue", 0f) else 0f
 
-        tvReportDate.text = "Report Date: $today"
-        tvDivision.text = "Division: ${setupPrefs.getString("division", "Not Configured") ?: "Not Configured"}"
-        tvBusNumbers.text = "Bus Numbers: ${setupPrefs.getString("bus_numbers", "Not Configured") ?: "Not Configured"}"
+        tvReportDate.text = getString(R.string.report_date_format, today)
+        tvDivision.text = getString(R.string.report_division_format, setupPrefs.getString("division", getString(R.string.not_configured)) ?: getString(R.string.not_configured))
+        tvBusNumbers.text = getString(R.string.report_bus_numbers_format, setupPrefs.getString("bus_numbers", getString(R.string.not_configured)) ?: getString(R.string.not_configured))
         tvTickets.text = tickets.toString()
         tvAdults.text = adults.toString()
         tvChildren.text = children.toString()
         tvPasses.text = passes.toString()
         tvLuggage.text = luggage.toString()
         tvTotalPassengers.text = (adults + children + passes).toString()
-        tvRevenue.text = "₹${String.format(Locale.getDefault(), "%.2f", revenue)}"
+        tvRevenue.text = getString(R.string.rupees_format, String.format(Locale.getDefault(), "%.2f", revenue))
 
         bindClosedReports(reportPrefs)
         bindTicketHistory(reportPrefs)
@@ -113,7 +113,7 @@ class DailyReportActivity : AppCompatActivity() {
 
         val rawTripReports = reportPrefs.getString("trip_reports", "[]") ?: "[]"
         val tripReports = JSONArray(rawTripReports)
-        tvClosedReportsTitle.text = "Closed Day Reports: ${tripReports.length()}"
+        tvClosedReportsTitle.text = getString(R.string.report_closed_count, tripReports.length())
 
         if (tripReports.length() == 0) {
             tvClosedReportsEmpty.visibility = TextView.VISIBLE
@@ -159,7 +159,7 @@ class DailyReportActivity : AppCompatActivity() {
 
             val details = TextView(this@DailyReportActivity).apply {
                 textSize = 14f
-                text = "Date: $date  Closed: $closedAt\nRoute: $route  No: $routeNo  Type: $busType\nTickets: $tickets  A:$adults  C:$children  P:$passes  L:$luggage\nRevenue: ₹${String.format(Locale.getDefault(), "%.2f", revenue)}"
+                text = getString(R.string.closed_report_details, date, closedAt, route, routeNo, busType, tickets, adults, children, passes, luggage, String.format(Locale.getDefault(), "%.2f", revenue))
             }
             addView(details)
 
@@ -174,7 +174,7 @@ class DailyReportActivity : AppCompatActivity() {
             }
 
             val printBtn = Button(this@DailyReportActivity).apply {
-                text = "Print"
+                text = getString(R.string.print)
                 textSize = 12f
                 isAllCaps = false
                 layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
@@ -182,7 +182,7 @@ class DailyReportActivity : AppCompatActivity() {
             }
 
             val deleteBtn = Button(this@DailyReportActivity).apply {
-                text = "Delete"
+                text = getString(R.string.delete)
                 textSize = 12f
                 isAllCaps = false
                 layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
@@ -197,12 +197,12 @@ class DailyReportActivity : AppCompatActivity() {
 
     private fun confirmDeleteClosedReport(index: Int) {
         AlertDialog.Builder(this)
-            .setTitle("Delete Closed Report")
-            .setMessage("Delete this specific closed day report?")
-            .setPositiveButton("Delete") { _, _ ->
+            .setTitle(R.string.delete_closed_report)
+            .setMessage(R.string.delete_specific_closed_report)
+            .setPositiveButton(R.string.delete) { _, _ ->
                 deleteClosedReport(index)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.cancel, null)
             .show()
     }
 
@@ -211,7 +211,7 @@ class DailyReportActivity : AppCompatActivity() {
         val rawTripReports = reportPrefs.getString("trip_reports", "[]") ?: "[]"
         val tripReports = JSONArray(rawTripReports)
         if (index < 0 || index >= tripReports.length()) {
-            Toast.makeText(this, "Invalid report selected", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.invalid_report_selected), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -224,7 +224,7 @@ class DailyReportActivity : AppCompatActivity() {
 
         reportPrefs.edit().putString("trip_reports", updated.toString()).apply()
         bindReport()
-        Toast.makeText(this, "Closed report deleted", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.closed_report_deleted), Toast.LENGTH_SHORT).show()
     }
 
     private fun confirmAndPrintCurrentReport() {
@@ -258,12 +258,12 @@ class DailyReportActivity : AppCompatActivity() {
 
     private fun showReportPrintPreview(printText: String) {
         AlertDialog.Builder(this)
-            .setTitle("Print Report")
-            .setMessage("Preview:\n\n$printText\nProceed with printing?")
-            .setPositiveButton("Print") { _, _ ->
+            .setTitle(R.string.print_report)
+            .setMessage(getString(R.string.print_report_preview, printText))
+            .setPositiveButton(R.string.print) { _, _ ->
                 printReportText(printText)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.cancel, null)
             .show()
     }
 
@@ -296,36 +296,36 @@ class DailyReportActivity : AppCompatActivity() {
             val pairedDevices = bluetoothManager.getPairedDevices()
             if (pairedDevices.isEmpty()) {
                 if (ignoreBluetoothErrors) {
-                    Toast.makeText(this, "Report processed (Bluetooth errors ignored)", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.report_processed_bluetooth_ignored), Toast.LENGTH_LONG).show()
                     return
                 }
-                Toast.makeText(this, "No Bluetooth printer paired.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.no_bluetooth_printer_ticket), Toast.LENGTH_LONG).show()
                 return
             }
 
             val printer = pairedDevices.first()
             if (!bluetoothManager.connectToPrinter(printer)) {
                 if (ignoreBluetoothErrors) {
-                    Toast.makeText(this, "Report processed (Bluetooth connect error ignored)", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.report_processed_connect_ignored), Toast.LENGTH_LONG).show()
                     return
                 }
-                Toast.makeText(this, "Failed to connect to printer.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.failed_to_connect_printer_general), Toast.LENGTH_LONG).show()
                 return
             }
 
             val written = bluetoothManager.printData(text.toByteArray(Charsets.UTF_8))
             if (written) {
-                Toast.makeText(this, "Report sent to printer", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.report_sent_to_printer), Toast.LENGTH_SHORT).show()
             } else if (ignoreBluetoothErrors) {
-                Toast.makeText(this, "Report processed (Bluetooth write error ignored)", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.report_processed_write_ignored), Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "Report print failed while sending data.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.report_print_failed_sending), Toast.LENGTH_LONG).show()
             }
         } catch (ex: Exception) {
             if (ignoreBluetoothErrors) {
-                Toast.makeText(this, "Report processed (Bluetooth exception ignored)", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.report_processed_exception_ignored), Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "Report print failed: ${ex.message ?: "Unknown error"}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.report_print_failed, ex.message ?: getString(R.string.unknown_error)), Toast.LENGTH_LONG).show()
             }
         } finally {
             bluetoothManager.disconnect()
@@ -369,7 +369,7 @@ class DailyReportActivity : AppCompatActivity() {
         }
 
         if (mergedHistory.length() == 0) {
-            tvHistoryTitle.text = "Ticket History (Newest First): 0"
+            tvHistoryTitle.text = getString(R.string.report_history_count, 0)
             tvHistoryEmpty.visibility = TextView.VISIBLE
             return
         }
@@ -382,7 +382,7 @@ class DailyReportActivity : AppCompatActivity() {
         }
 
         entries.sortByDescending { it.optLong("timestamp", 0L) }
-        tvHistoryTitle.text = "Ticket History (Newest First): ${entries.size}"
+        tvHistoryTitle.text = getString(R.string.report_history_count, entries.size)
 
         var lastDateHeader = ""
         entries.forEach { entry ->

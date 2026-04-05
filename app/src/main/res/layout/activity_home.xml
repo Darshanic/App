@@ -13,7 +13,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="6dp"
         android:gravity="center"
-        android:text="Commute Management"
+        android:text="@string/home_title"
         android:textColor="@color/home_title_text"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:text="Home Dashboard"
+        android:text="@string/home_subtitle"
         android:textColor="@color/home_subtitle_text"
         android:textSize="16sp" />
 
@@ -33,7 +33,7 @@
         android:layout_height="64dp"
         android:layout_marginBottom="12dp"
         android:backgroundTint="@color/home_btn_setup"
-        android:text="Manager Setup"
+        android:text="@string/home_manager_setup"
         android:textAllCaps="false"
         android:textColor="@color/home_title_text"
         android:textSize="20sp" />
@@ -44,7 +44,7 @@
         android:layout_height="64dp"
         android:layout_marginBottom="12dp"
         android:backgroundTint="@color/home_btn_ticket"
-        android:text="Commute Ticket"
+        android:text="@string/home_commute_ticket"
         android:textAllCaps="false"
         android:textColor="@color/home_title_text"
         android:textSize="20sp" />
@@ -55,7 +55,7 @@
         android:layout_height="64dp"
         android:layout_marginBottom="12dp"
         android:backgroundTint="@color/home_btn_report"
-        android:text="Daily Report"
+        android:text="@string/home_daily_report"
         android:textAllCaps="false"
         android:textColor="@color/home_title_text"
         android:textSize="20sp" />
@@ -65,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:backgroundTint="@color/home_btn_settings"
-        android:text="Settings"
+        android:text="@string/home_settings"
         android:textAllCaps="false"
         android:textColor="@color/home_title_text"
         android:textSize="20sp" />

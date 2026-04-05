@@ -81,7 +81,6 @@ class CommuteTicketActivity : AppCompatActivity() {
     // Sample fare calculation (you can adjust this)
     private val baseFare = 10.0
     private val passDiscount = 0.8 // 80% of base fare
-    private val luggageFare = 5.0
     private val clockHandler = Handler(Looper.getMainLooper())
     private val clockTicker = object : Runnable {
         override fun run() {
@@ -104,7 +103,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         maybeForceRouteSelectionAfterDayClose()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Commute Ticket"
+        supportActionBar?.title = getString(R.string.title_commute_ticket)
     }
 
     private fun initializeViews() {
@@ -135,9 +134,9 @@ class CommuteTicketActivity : AppCompatActivity() {
                 val chosen = passTypes[position]
                 if (chosen.startsWith("Day Pass") && !isCityBusService()) {
                     val dayPassValidityMessage = if (isCityAcBusService()) {
-                        "Day Pass is valid in City AC Bus services only."
+                        getString(R.string.day_pass_valid_city_ac)
                     } else {
-                        "Day Pass is valid only for city bus class services."
+                        getString(R.string.day_pass_valid_city_bus)
                     }
                     Toast.makeText(
                         this@CommuteTicketActivity,
@@ -162,7 +161,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                 if (selectedPassType != "None") {
                     verifyPassIdentityThenProceed(
                         onVerified = {
-                            Toast.makeText(this@CommuteTicketActivity, "ID verification saved for $selectedPassType", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@CommuteTicketActivity, getString(R.string.id_verification_saved, selectedPassType), Toast.LENGTH_SHORT).show()
                         },
                         onCancelled = {
                             spPassType.setSelection(0)
@@ -171,7 +170,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                             selectedPassIdLast4 = ""
                             passCount = 0
                             calculateFare()
-                            Toast.makeText(this@CommuteTicketActivity, "Pass selection cancelled", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@CommuteTicketActivity, getString(R.string.pass_selection_cancelled), Toast.LENGTH_SHORT).show()
                         }
                     )
                 }
@@ -190,9 +189,9 @@ class CommuteTicketActivity : AppCompatActivity() {
         val busType = prefs.getString("bus_type", "") ?: ""
         val routeNumber = prefs.getString("route_number", "") ?: ""
 
-        tvDivision.text = "Division: $division"
+        tvDivision.text = getString(R.string.division_format, division)
         updateDateTimeDisplay()
-        tvRouteNumber.text = "Route: $route${if (routeNumber.isNotBlank()) " | No: $routeNumber" else ""} | Bus Type: $busType"
+        tvRouteNumber.text = getString(R.string.route_number_format, route, if (routeNumber.isNotBlank()) getString(R.string.route_number_suffix, routeNumber) else "", busType)
 
         selectedParsedRoute = routeDslParser.findRouteByLabelAnyBusType(route)
         allStops = selectedParsedRoute?.stops ?: getSampleStopsForRoute(route)
@@ -203,9 +202,9 @@ class CommuteTicketActivity : AppCompatActivity() {
             if (allStops.size > 1) {
                 selectedToStop = allStops[1]
             }
-            tvRouteInfo.text = "From – To: $selectedFromStop - $selectedToStop"
+            tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, selectedToStop)
         } else {
-            tvRouteInfo.text = "From – To: (No stops available)"
+            tvRouteInfo.text = getString(R.string.route_info_no_stops)
         }
     }
 
@@ -220,7 +219,7 @@ class CommuteTicketActivity : AppCompatActivity() {
     }
 
     private fun updateDateTimeDisplay() {
-        tvDate.text = "Date: ${getCurrentDate()}  Time: ${getCurrentTime()}"
+        tvDate.text = getString(R.string.date_time_format, getCurrentDate(), getCurrentTime())
     }
 
     private fun getSampleStopsForRoute(route: String): List<String> {
@@ -265,14 +264,14 @@ class CommuteTicketActivity : AppCompatActivity() {
                 if (position >= 0) {
                     selectedToStop = parent?.getItemAtPosition(position)?.toString().orEmpty()
                     if (selectedToStop.isNotEmpty()) {
-                        tvRouteInfo.text = "From – To: $selectedFromStop - $selectedToStop"
+                        tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, selectedToStop)
                     } else {
-                        tvRouteInfo.text = "From – To: $selectedFromStop - (Select destination)"
+                        tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, getString(R.string.commute_to_stop))
                     }
                     calculateFare()
                 } else {
                     selectedToStop = ""
-                    tvRouteInfo.text = "From – To: $selectedFromStop - (Select destination)"
+                    tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, getString(R.string.commute_to_stop))
                     calculateFare()
                 }
             }
@@ -300,7 +299,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         }
 
         if (availableToStops.isEmpty()) {
-            Toast.makeText(this, "No stops available after $selectedFromStop", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.no_stops_after, selectedFromStop), Toast.LENGTH_SHORT).show()
             spToStop.isEnabled = false
             selectedToStop = ""
             return
@@ -312,9 +311,9 @@ class CommuteTicketActivity : AppCompatActivity() {
         spToStop.isEnabled = true
         selectedToStop = availableToStops.firstOrNull().orEmpty()
         if (selectedToStop.isNotEmpty()) {
-            tvRouteInfo.text = "From – To: $selectedFromStop - $selectedToStop"
+            tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, selectedToStop)
         } else {
-            tvRouteInfo.text = "From – To: $selectedFromStop - (Select destination)"
+            tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, getString(R.string.commute_to_stop))
         }
     }
 
@@ -334,7 +333,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                 updateCounterUI()
                 calculateFare()
             } else {
-                Toast.makeText(this, "Maximum $MAX_ADULTS_PER_TICKET adults per ticket", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.max_adults_message, MAX_ADULTS_PER_TICKET), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -353,7 +352,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                 updateCounterUI()
                 calculateFare()
             } else {
-                Toast.makeText(this, "Maximum $MAX_CHILDREN_PER_TICKET children per ticket", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.max_children_message, MAX_CHILDREN_PER_TICKET), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -372,13 +371,60 @@ class CommuteTicketActivity : AppCompatActivity() {
             calculateFare()
         }
 
+        tvLuggageCount.setOnClickListener {
+            showLuggageWeightInputDialog()
+        }
+
         updateCounterUI()
     }
 
+    private fun showLuggageWeightInputDialog() {
+        val input = EditText(this).apply {
+            inputType = InputType.TYPE_CLASS_NUMBER
+            filters = arrayOf(InputFilter.LengthFilter(3))
+            hint = "Weight in kg"
+            setText(luggageCount.toString())
+            setSelection(text.length)
+        }
+
+        val container = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(48, 24, 48, 0)
+            addView(input)
+        }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(R.string.enter_luggage_weight_title)
+            .setMessage(R.string.enter_luggage_weight_message)
+            .setView(container)
+            .setPositiveButton("Apply", null)
+            .setNegativeButton("Cancel", null)
+            .create()
+
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                val valueText = input.text?.toString()?.trim().orEmpty()
+                val newWeight = valueText.toIntOrNull()
+
+                if (newWeight == null || newWeight < 0) {
+                    input.error = "Enter valid non-negative kg"
+                    return@setOnClickListener
+                }
+
+                luggageCount = newWeight
+                updateCounterUI()
+                calculateFare()
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+    }
+
     private fun updateCounterUI() {
-        tvAdultCount.text = "Adults: $adultCount"
-        tvChildCount.text = "Children: $childCount"
-        tvLuggageCount.text = "Luggage: $luggageCount"
+        tvAdultCount.text = getString(R.string.counter_adults, adultCount)
+        tvChildCount.text = getString(R.string.counter_children, childCount)
+        tvLuggageCount.text = getString(R.string.counter_luggage, luggageCount)
     }
 
     private fun calculateFare() {
@@ -400,7 +446,8 @@ class CommuteTicketActivity : AppCompatActivity() {
 
         // Day Pass and Student Pass do not add luggage to ticket fare.
         if (selectedPassType != "Day Pass" && selectedPassType != "Student Pass") {
-            fare += luggageCount * luggageFare
+            val luggageFarePerKg = getLuggageFarePerKg(effectiveBaseFare)
+            fare += luggageCount * luggageFarePerKg
         }
 
         totalFare = if (selectedPassType == "Day Pass" || (selectedFromStop.isNotEmpty() && selectedToStop.isNotEmpty())) {
@@ -409,7 +456,7 @@ class CommuteTicketActivity : AppCompatActivity() {
             0.0
         }
 
-        tvTotalFare.text = "TOT: ₹${String.format("%.2f", totalFare)}"
+        tvTotalFare.text = getString(R.string.commute_total_default).replace("0.00", String.format("%.2f", totalFare))
     }
 
     private fun setupButtons() {
@@ -432,8 +479,8 @@ class CommuteTicketActivity : AppCompatActivity() {
 
     private fun confirmDayClose() {
         AlertDialog.Builder(this)
-            .setTitle("Day Close")
-            .setMessage("This will close the current trip, save its report, and ask you to choose a different route. Continue?")
+            .setTitle(R.string.day_close_title)
+            .setMessage(R.string.day_close_message)
             .setPositiveButton("Yes") { _, _ ->
                 closeTripAndSwitchRoute()
             }
@@ -518,7 +565,7 @@ class CommuteTicketActivity : AppCompatActivity() {
 
         if (routes.isEmpty()) {
             setupPrefs.edit().putBoolean(pendingRouteSelectionKey, false).apply()
-            Toast.makeText(this, "No alternate routes available for this division.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.no_alternate_routes), Toast.LENGTH_LONG).show()
             return
         }
 
@@ -526,7 +573,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         var selectedIndex = 0
 
         val dialog = AlertDialog.Builder(this)
-            .setTitle("Select New Route")
+            .setTitle(R.string.select_new_route)
             .setSingleChoiceItems(routeLabels, 0) { _, which ->
                 selectedIndex = which
             }
@@ -544,7 +591,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                 loadSetupData()
                 setupStopSelectors()
                 resetForm()
-                Toast.makeText(this, "Trip closed and route switched to ${selectedRoute.displayLabel}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.trip_closed_route_switched, selectedRoute.displayLabel), Toast.LENGTH_LONG).show()
             }
 
         if (!forceSelection) {
@@ -554,7 +601,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         dialog.setCancelable(!forceSelection).show()
     }
 
-    private fun resetForm() {
+    private fun resetForm(preserveStops: Boolean = false) {
         adultCount = 1
         childCount = 0
         passCount = 0
@@ -562,9 +609,30 @@ class CommuteTicketActivity : AppCompatActivity() {
         selectedPassType = "None"
         selectedPassIdType = ""
         selectedPassIdLast4 = ""
-        
-        // Reset to first and second stops by default
-        if (allStops.isNotEmpty()) {
+
+        val canPreserveStops = preserveStops &&
+            selectedFromStop.isNotEmpty() &&
+            selectedToStop.isNotEmpty() &&
+            allStops.contains(selectedFromStop) &&
+            allStops.contains(selectedToStop)
+
+        if (canPreserveStops) {
+            val preservedFromStop = selectedFromStop
+            val preservedToStop = selectedToStop
+            val fromIndex = allStops.indexOf(preservedFromStop)
+            if (fromIndex >= 0) {
+                spFromStop.setSelection(fromIndex)
+                updateToStopSpinner()
+                val availableToStops = allStops.drop(fromIndex + 1)
+                val toIndex = availableToStops.indexOf(preservedToStop)
+                if (toIndex >= 0) {
+                    spToStop.setSelection(toIndex)
+                    selectedFromStop = preservedFromStop
+                    selectedToStop = preservedToStop
+                }
+            }
+        } else if (allStops.isNotEmpty()) {
+            // Reset to first and second stops by default
             selectedFromStop = allStops[0]
             spFromStop.setSelection(0)
             
@@ -586,23 +654,46 @@ class CommuteTicketActivity : AppCompatActivity() {
         updateCounterUI()
         calculateFare()
         if (selectedFromStop.isNotEmpty() && selectedToStop.isNotEmpty()) {
-            tvRouteInfo.text = "From – To: $selectedFromStop - $selectedToStop"
+            tvRouteInfo.text = getString(R.string.route_info_selected, selectedFromStop, selectedToStop)
         } else {
-            tvRouteInfo.text = "From – To: (Select stops below)"
+            tvRouteInfo.text = getString(R.string.commute_from_to_select)
         }
 
-        Toast.makeText(this, "Form reset", Toast.LENGTH_SHORT).show()
+        val resetMessage = if (canPreserveStops) {
+            "Ticket printed. From/To retained for next ticket."
+        } else {
+            "Form reset"
+        }
+        Toast.makeText(this, resetMessage, Toast.LENGTH_SHORT).show()
     }
 
     private fun printTicket() {
         // Validation
         if (selectedPassType != "Day Pass" && (selectedFromStop.isEmpty() || selectedToStop.isEmpty())) {
-            Toast.makeText(this, "Please select both From and To stops", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.select_both_stops), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (adultCount + childCount == 0) {
-            Toast.makeText(this, "Please select at least one passenger type", Toast.LENGTH_LONG).show()
+        val hasPassengers = (adultCount + childCount) > 0
+        val hasLuggage = luggageCount > 0
+
+        // Luggage and passenger journeys must be issued as separate tickets.
+        if (hasPassengers && hasLuggage) {
+            Toast.makeText(
+                this,
+                "Passengers and luggage must be printed as separate tickets.",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        if (!hasPassengers && !hasLuggage) {
+            Toast.makeText(this, getString(R.string.select_passengers_or_luggage), Toast.LENGTH_LONG).show()
+            return
+        }
+
+        if (!hasPassengers && selectedPassType != "None") {
+            Toast.makeText(this, getString(R.string.pass_not_applicable_luggage), Toast.LENGTH_LONG).show()
             return
         }
 
@@ -626,27 +717,27 @@ class CommuteTicketActivity : AppCompatActivity() {
         }
 
         if (selectedPassType == "Day Pass" && childCount > 0) {
-            Toast.makeText(this, "Day Pass is available only for adult passengers.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.day_pass_adults_only), Toast.LENGTH_LONG).show()
             return
         }
 
         if (selectedPassType == "Senior Discount Pass" && childCount > 0) {
-            Toast.makeText(this, "Senior Ticket uses senior count only. Set child count to zero.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.senior_ticket_child_zero), Toast.LENGTH_LONG).show()
             return
         }
 
         if (selectedPassType == "Student Pass" && childCount > 0) {
-            Toast.makeText(this, "Student Pass records only student count. Use Adults counter for students.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.student_pass_adult_count), Toast.LENGTH_LONG).show()
             return
         }
 
         if (selectedPassType == "Student Pass" && luggageCount > 0) {
-            Toast.makeText(this, "Luggage is not applicable for Student Pass entry.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.student_pass_no_luggage), Toast.LENGTH_LONG).show()
             return
         }
 
         if (!isPassIdentityCaptured()) {
-            Toast.makeText(this, "Please select the pass again and complete ID verification.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.complete_id_verification), Toast.LENGTH_LONG).show()
             return
         }
 
@@ -766,8 +857,8 @@ class CommuteTicketActivity : AppCompatActivity() {
         }
 
         val dialog = AlertDialog.Builder(this)
-            .setTitle("Day Pass ID Verification")
-            .setMessage("Select ID card type and enter last 4 digits")
+            .setTitle(R.string.day_pass_id_verification)
+            .setMessage(R.string.select_id_type_message)
             .setView(container)
             .setPositiveButton("Continue", null)
             .setNegativeButton("Cancel") { _, _ -> onCancelled() }
@@ -778,7 +869,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                 val selectedType = idTypeSpinner.selectedItem?.toString().orEmpty()
                 val last4 = last4Input.text?.toString()?.trim().orEmpty()
                 if (selectedType.isBlank()) {
-                    Toast.makeText(this, "Please select an ID type", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.select_id_type), Toast.LENGTH_LONG).show()
                     return@setOnClickListener
                 }
                 if (!last4.matches(Regex("\\d{4}"))) {
@@ -821,7 +912,7 @@ class CommuteTicketActivity : AppCompatActivity() {
         """.trimIndent()
 
         androidx.appcompat.app.AlertDialog.Builder(this)
-            .setTitle("Confirm Ticket")
+            .setTitle(R.string.confirm_ticket)
             .setMessage(message)
             .setPositiveButton("Print") { _, _ ->
                 executeTicketPrint()
@@ -832,7 +923,7 @@ class CommuteTicketActivity : AppCompatActivity() {
 
     private fun executeTicketPrint() {
         if (!isPassIdentityCaptured()) {
-            Toast.makeText(this, "Please enter required pass ID details before issuing pass ticket.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.enter_pass_id_details), Toast.LENGTH_LONG).show()
             return
         }
 
@@ -869,7 +960,8 @@ class CommuteTicketActivity : AppCompatActivity() {
             val childFarePerPassenger = ceilFare(effectiveBaseFare * childRate)
             val seniorFareTotal = if (selectedPassType == "Senior Discount Pass") adultFareTotal else 0.0
             val passFareTotal = if (selectedPassType == "Senior Discount Pass") seniorFareTotal else 0.0
-            val luggageFareTotal = ceilFare(luggageCount * luggageFare)
+            val luggageFarePerKg = getLuggageFarePerKg(effectiveBaseFare)
+            val luggageFareTotal = ceilFare(luggageCount * luggageFarePerKg)
             val dayPassValidityText = if (isCityAcBusService()) {
                 "Valid in City AC Bus services only"
             } else {
@@ -971,7 +1063,7 @@ class CommuteTicketActivity : AppCompatActivity() {
             }
             Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
-            resetForm()
+            resetForm(preserveStops = true)
         } catch (ex: Exception) {
             if (isIgnoreBluetoothErrorsEnabled()) {
                 updateDailyReportTotals()
@@ -981,7 +1073,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                     "Ticket processed (Bluetooth error ignored: ${ex.message ?: "Unknown error"})",
                     Toast.LENGTH_LONG
                 ).show()
-                resetForm()
+                resetForm(preserveStops = true)
             } else {
                 Toast.makeText(this, "Ticket print failed: ${ex.message ?: "Unknown error"}", Toast.LENGTH_LONG).show()
             }
@@ -995,7 +1087,7 @@ class CommuteTicketActivity : AppCompatActivity() {
             if (ignoreBluetoothErrors) {
                 return true
             }
-            Toast.makeText(this, "No Bluetooth printer paired.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.no_bluetooth_printer_ticket), Toast.LENGTH_LONG).show()
             return false
         }
 
@@ -1005,7 +1097,7 @@ class CommuteTicketActivity : AppCompatActivity() {
             if (ignoreBluetoothErrors) {
                 return true
             }
-            Toast.makeText(this, "Failed to connect to Bluetooth printer.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.connect_bluetooth_printer_failed), Toast.LENGTH_LONG).show()
             return false
         }
 
@@ -1013,7 +1105,7 @@ class CommuteTicketActivity : AppCompatActivity() {
             val printBytes = ticketFormatter.decodeBitmapToByteArray(bitmap)
             val written = bluetoothManager.printData(printBytes)
             if (!written && !ignoreBluetoothErrors) {
-                Toast.makeText(this, "Failed to send ticket data to printer.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.send_ticket_data_failed), Toast.LENGTH_LONG).show()
             }
             written || ignoreBluetoothErrors
         } finally {
@@ -1029,15 +1121,15 @@ class CommuteTicketActivity : AppCompatActivity() {
     private fun executeStudentPassEntry() {
         try {
             if (!isPassIdentityCaptured()) {
-                Toast.makeText(this, "Please enter last 4 digits of student pass number.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.enter_student_pass_last4), Toast.LENGTH_LONG).show()
                 return
             }
             // Sequence is still advanced for audit trail even when no paper ticket is printed.
             getNextTicketNumber()
             updateDailyReportTotals()
             appendTicketHistory()
-            Toast.makeText(this, "Student pass entry recorded (ID ****$selectedPassIdLast4). No ticket printed.", Toast.LENGTH_LONG).show()
-            resetForm()
+            Toast.makeText(this, getString(R.string.student_pass_recorded, selectedPassIdLast4), Toast.LENGTH_LONG).show()
+            resetForm(preserveStops = true)
         } catch (ex: Exception) {
             Toast.makeText(this, "Failed to record student pass entry: ${ex.message ?: "Unknown error"}", Toast.LENGTH_LONG).show()
         }
@@ -1108,6 +1200,11 @@ class CommuteTicketActivity : AppCompatActivity() {
         } else {
             baseDayPassAmount
         }
+    }
+
+    private fun getLuggageFarePerKg(segmentFareWithBusType: Double): Double {
+        val calculatedPerKg = segmentFareWithBusType * 0.10
+        return maxOf(5.0, calculatedPerKg)
     }
 
     private fun appendTicketHistory() {

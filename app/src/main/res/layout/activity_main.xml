@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Trip 1: ಮಂಡ್ಯ to ಶ್ರೀರಂಗಪಟ್ಟಣ"
+        android:text="@string/legacy_trip_title"
         android:textColor="@color/text_primary"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -26,14 +26,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="FROM"
+            android:text="@string/legacy_from"
             android:backgroundTint="@color/btn_neutral"
             android:textColor="@color/home_title_text"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text=" ಮಂಡ್ಯ"
+            android:text="@string/legacy_origin"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:gravity="center_vertical"
@@ -49,14 +49,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TO"
+            android:text="@string/legacy_to"
             android:backgroundTint="@color/btn_neutral"
             android:textColor="@color/home_title_text"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text=" ಇಂದುವಾಳು"
+            android:text="@string/legacy_destination"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:gravity="center_vertical"
@@ -70,9 +70,9 @@
         android:columnCount="3"
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
-        <Button android:text="ಕಲ್ಲಹಳ್ಳಿ" android:backgroundTint="@color/btn_neutral" android:textColor="@color/home_title_text" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
-        <Button android:text="ಇಂದುವಾಳು" android:backgroundTint="@color/text_accent" android:textColor="@color/home_title_text" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
-        <Button android:text="ಸುಂಡಳ್ಳಿ" android:backgroundTint="@color/btn_neutral" android:textColor="@color/home_title_text" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <Button android:text="@string/legacy_quick_stop_1" android:backgroundTint="@color/btn_neutral" android:textColor="@color/home_title_text" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <Button android:text="@string/legacy_quick_stop_2" android:backgroundTint="@color/text_accent" android:textColor="@color/home_title_text" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        <Button android:text="@string/legacy_quick_stop_3" android:backgroundTint="@color/btn_neutral" android:textColor="@color/home_title_text" android:layout_margin="4dp" android:layout_columnWeight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
     </GridLayout>
 
     <!-- Spacer -->
@@ -88,7 +88,7 @@
         android:orientation="horizontal"
         android:paddingBottom="8dp">
         <Button android:id="@+id/btnAdultMinus" android:text="-" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp"/>
-        <TextView android:id="@+id/tvAdultCount" android:text="Adult: 1" android:textColor="@color/text_primary" android:textSize="18sp" android:layout_weight="2" android:layout_width="0dp" android:gravity="center"/>
+        <TextView android:id="@+id/tvAdultCount" android:text="@string/legacy_adult_default" android:textColor="@color/text_primary" android:textSize="18sp" android:layout_weight="2" android:layout_width="0dp" android:gravity="center"/>
         <Button android:id="@+id/btnAdultPlus" android:text="+" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp"/>
     </LinearLayout>
 
@@ -98,7 +98,7 @@
         android:orientation="horizontal"
         android:paddingBottom="16dp">
         <Button android:id="@+id/btnChildMinus" android:text="-" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp"/>
-        <TextView android:id="@+id/tvChildCount" android:text="Child: 0" android:textColor="@color/text_primary" android:textSize="18sp" android:layout_weight="2" android:layout_width="0dp" android:gravity="center"/>
+        <TextView android:id="@+id/tvChildCount" android:text="@string/legacy_child_default" android:textColor="@color/text_primary" android:textSize="18sp" android:layout_weight="2" android:layout_width="0dp" android:gravity="center"/>
         <Button android:id="@+id/btnChildPlus" android:text="+" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp"/>
     </LinearLayout>
 
@@ -107,9 +107,9 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
-        <Button android:text="PASS" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginEnd="8dp"/>
-        <Button android:id="@+id/btnPrint" android:text="PRINT" android:backgroundTint="@color/text_accent" android:textColor="@color/home_title_text" android:textSize="24sp" android:layout_weight="2" android:layout_width="0dp" android:layout_height="match_parent"/>
-        <Button android:text="RESET" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginStart="8dp"/>
+        <Button android:text="@string/legacy_pass" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginEnd="8dp"/>
+        <Button android:id="@+id/btnPrint" android:text="@string/legacy_print" android:backgroundTint="@color/text_accent" android:textColor="@color/home_title_text" android:textSize="24sp" android:layout_weight="2" android:layout_width="0dp" android:layout_height="match_parent"/>
+        <Button android:text="@string/legacy_reset" android:backgroundTint="@color/btn_neutral" android:layout_weight="1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginStart="8dp"/>
     </LinearLayout>
     
 </LinearLayout>

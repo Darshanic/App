@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Manager Setup"
+            android:text="@string/title_manager_setup"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="14dp"
-            android:text="Choose authentication method below"
+            android:text="@string/manager_choose_auth"
             android:textSize="14sp" />
 
         <RadioGroup
@@ -36,28 +36,28 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pass Key" />
+                android:text="@string/manager_pass_key" />
 
             <RadioButton
                 android:id="@+id/rbBiometric"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Biometric" />
+                android:text="@string/manager_biometric" />
         </RadioGroup>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Login / Pass Key"
+            android:text="@string/manager_login_passkey"
             android:id="@+id/tvPassKeyLabel" />
 
         <EditText
             android:id="@+id/etPassKeyInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter manager pass key"
+            android:hint="@string/manager_hint_passkey"
             android:inputType="numberPassword" />
 
         <Button
@@ -65,14 +65,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Authorize Admin Controls" />
+            android:text="@string/manager_authorize_controls" />
 
         <Button
             android:id="@+id/btnBiometric"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Authorize with Biometric"
+            android:text="@string/manager_authorize_biometric"
             android:visibility="gone" />
 
         <TextView
@@ -80,14 +80,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Admin controls are locked. Enter pass key to unlock Zones/Division."
+            android:text="@string/manager_admin_locked"
             android:textSize="13sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Zones (pass key required)" />
+            android:text="@string/manager_zones" />
 
         <Spinner
             android:id="@+id/spZone"
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Corresponding Division (pass key required)" />
+            android:text="@string/manager_division" />
 
         <Spinner
             android:id="@+id/spDivision"
@@ -110,13 +110,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Confirm Zone + Division Scope" />
+            android:text="@string/manager_confirm_scope" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Select Route" />
+            android:text="@string/manager_select_route" />
 
         <Spinner
             android:id="@+id/spRoute"
@@ -138,7 +138,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Auto Up Route" />
+                    android:text="@string/manager_auto_up_route" />
 
                 <TextView
                     android:id="@+id/tvUpRoute"
@@ -162,7 +162,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Auto Down Route" />
+                    android:text="@string/manager_auto_down_route" />
 
                 <TextView
                     android:id="@+id/tvDownRoute"
@@ -178,20 +178,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Bus Numbers (comma separated)" />
+            android:text="@string/manager_bus_numbers" />
 
         <EditText
             android:id="@+id/etBusNumbers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Example: KA11F001, KA11F002"
+            android:hint="@string/manager_bus_numbers_hint"
             android:inputType="text" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Bus Type (Auto-Detected from Route)" />
+            android:text="@string/manager_bus_type" />
 
         <TextView
             android:id="@+id/tvBusType"
@@ -206,7 +206,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="Confirm before printing ticket" />
+            android:text="@string/manager_confirm_print" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -220,14 +220,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="Reset" />
+                android:text="@string/manager_reset" />
 
             <Button
                 android:id="@+id/btnSaveSetup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Save Setup" />
+                android:text="@string/manager_save_setup" />
         </LinearLayout>
 
     </LinearLayout>

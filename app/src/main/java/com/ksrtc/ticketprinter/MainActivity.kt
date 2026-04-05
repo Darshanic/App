@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 adultCount++
                 updateCounterUI()
             } else {
-                Toast.makeText(this, "Maximum $MAX_ADULTS_PER_TICKET adults per ticket", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.limit_adults_per_ticket, MAX_ADULTS_PER_TICKET), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 childCount++
                 updateCounterUI()
             } else {
-                Toast.makeText(this, "Maximum $MAX_CHILDREN_PER_TICKET children per ticket", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.limit_children_per_ticket, MAX_CHILDREN_PER_TICKET), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -78,15 +78,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateCounterUI() {
-        tvAdultCount.text = "Adult: $adultCount"
-        tvChildCount.text = "Child: $childCount"
+        tvAdultCount.text = getString(R.string.legacy_adult_count, adultCount)
+        tvChildCount.text = getString(R.string.legacy_child_count, childCount)
     }
 
     private fun printSampleTicket() {
         if (adultCount > MAX_ADULTS_PER_TICKET || childCount > MAX_CHILDREN_PER_TICKET) {
             Toast.makeText(
                 this,
-                "Limit is $MAX_ADULTS_PER_TICKET adults and $MAX_CHILDREN_PER_TICKET children per ticket",
+                getString(R.string.legacy_limit_message, MAX_ADULTS_PER_TICKET, MAX_CHILDREN_PER_TICKET),
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
 
         val pairedDevices = bluetoothManager.getPairedDevices()
         if (pairedDevices.isEmpty()) {
-            Toast.makeText(this, "No Bluetooth printers found! Please pair one in Settings.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.no_bluetooth_printer), Toast.LENGTH_LONG).show()
             return
         }
 
@@ -125,10 +125,10 @@ class MainActivity : AppCompatActivity() {
             bluetoothManager.printData(printBytes)
             bluetoothManager.disconnect()
             
-            Toast.makeText(this, "Ticket Printed!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.ticket_printed), Toast.LENGTH_SHORT).show()
             ticketCounter++
         } else {
-            Toast.makeText(this, "Failed to connect to ${printer.name}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.failed_to_connect_printer, printer.name), Toast.LENGTH_SHORT).show()
         }
     }
 

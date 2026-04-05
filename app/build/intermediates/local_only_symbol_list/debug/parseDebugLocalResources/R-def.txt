@@ -37,6 +37,9 @@ color text_primary
 color text_secondary
 color white
 drawable ic_app_icon
+drawable logo
+drawable logo_circle_mask
+drawable splash_empty_icon
 id action_settings
 id btnAdultMinus
 id btnAdultPlus
@@ -109,6 +112,8 @@ layout activity_main
 layout activity_manager_setup
 layout activity_splash
 menu main_menu
+mipmap ic_launcher
+mipmap ic_launcher_round
 string app_name
 string app_version_label
 style Theme.TicketPrinter
