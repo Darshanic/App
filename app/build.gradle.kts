@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+val appVersionName = "2.1.3"
+
 android {
     namespace = "com.sktc.ticketprinter"
     compileSdk = 34
@@ -11,8 +13,8 @@ android {
         applicationId = "com.sktc.ticketprinter"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 6
+        versionName = appVersionName
     }
 
     buildTypes {

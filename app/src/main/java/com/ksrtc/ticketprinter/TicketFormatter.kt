@@ -332,6 +332,7 @@ class TicketFormatter {
         routeNumber: String = "",
         busType: String = "",
         busNumber: String = "",
+        validityText: String = "",
         printDateTime: String = ""
     ): Bitmap {
         val width = 384
@@ -405,15 +406,14 @@ class TicketFormatter {
         canvas.drawText("DAY PASS", contentLeft + contentWidth / 2f, 246f, paint)
 
         paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
-        paint.textSize = fitTextSize(
-            paint,
-            "Valid throughout ${division.ifBlank { "division" }} Division for $dayName",
-            19f,
-            12f,
-            contentWidth
-        )
+        val finalValidityText = if (validityText.isNotBlank()) {
+            "$validityText | $dayName"
+        } else {
+            "Valid throughout ${division.ifBlank { "division" }} Division for $dayName"
+        }
+        paint.textSize = fitTextSize(paint, finalValidityText, 19f, 12f, contentWidth)
         canvas.drawText(
-            "Valid throughout ${division.ifBlank { "division" }} Division for $dayName",
+            finalValidityText,
             contentLeft + contentWidth / 2f,
             308f,
             paint

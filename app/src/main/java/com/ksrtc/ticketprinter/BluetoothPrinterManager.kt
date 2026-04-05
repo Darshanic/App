@@ -42,12 +42,14 @@ class BluetoothPrinterManager {
         }
     }
 
-    fun printData(data: ByteArray) {
-        try {
+    fun printData(data: ByteArray): Boolean {
+        return try {
             outputStream?.write(data)
             outputStream?.flush()
+            true
         } catch (e: IOException) {
             Log.e("BTPrinter", "Failed to print data", e)
+            false
         }
     }
 

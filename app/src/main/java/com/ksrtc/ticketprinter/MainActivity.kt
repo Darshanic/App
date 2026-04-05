@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val MAX_ADULTS_PER_TICKET = 5
+        private const val MAX_CHILDREN_PER_TICKET = 5
+    }
+
     private val bluetoothManager = BluetoothPrinterManager()
     private val ticketFormatter = TicketFormatter()
     private lateinit var dbHelper: RouteDatabaseHelper
@@ -25,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvChildCount: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         dbHelper = RouteDatabaseHelper(this)
@@ -33,8 +39,12 @@ class MainActivity : AppCompatActivity() {
         tvChildCount = findViewById(R.id.tvChildCount)
 
         findViewById<Button>(R.id.btnAdultPlus).setOnClickListener {
-            adultCount++
-            updateCounterUI()
+            if (adultCount < MAX_ADULTS_PER_TICKET) {
+                adultCount++
+                updateCounterUI()
+            } else {
+                Toast.makeText(this, "Maximum $MAX_ADULTS_PER_TICKET adults per ticket", Toast.LENGTH_SHORT).show()
+            }
         }
 
         findViewById<Button>(R.id.btnAdultMinus).setOnClickListener {
@@ -45,8 +55,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnChildPlus).setOnClickListener {
-            childCount++
-            updateCounterUI()
+            if (childCount < MAX_CHILDREN_PER_TICKET) {
+                childCount++
+                updateCounterUI()
+            } else {
+                Toast.makeText(this, "Maximum $MAX_CHILDREN_PER_TICKET children per ticket", Toast.LENGTH_SHORT).show()
+            }
         }
 
         findViewById<Button>(R.id.btnChildMinus).setOnClickListener {
@@ -69,6 +83,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun printSampleTicket() {
+        if (adultCount > MAX_ADULTS_PER_TICKET || childCount > MAX_CHILDREN_PER_TICKET) {
+            Toast.makeText(
+                this,
+                "Limit is $MAX_ADULTS_PER_TICKET adults and $MAX_CHILDREN_PER_TICKET children per ticket",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
         val pairedDevices = bluetoothManager.getPairedDevices()
         if (pairedDevices.isEmpty()) {
             Toast.makeText(this, "No Bluetooth printers found! Please pair one in Settings.", Toast.LENGTH_LONG).show()

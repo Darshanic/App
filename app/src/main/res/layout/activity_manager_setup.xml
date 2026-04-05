@@ -144,7 +144,7 @@
                     android:id="@+id/tvUpRoute"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#EEEEEE"
+                    android:background="@color/section_background"
                     android:padding="10dp"
                     android:text="-" />
             </LinearLayout>
@@ -168,7 +168,7 @@
                     android:id="@+id/tvDownRoute"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#EEEEEE"
+                    android:background="@color/section_background"
                     android:padding="10dp"
                     android:text="-" />
             </LinearLayout>
@@ -197,7 +197,7 @@
             android:id="@+id/tvBusType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#EEEEEE"
+            android:background="@color/section_background"
             android:padding="10dp"
             android:text="-" />
 

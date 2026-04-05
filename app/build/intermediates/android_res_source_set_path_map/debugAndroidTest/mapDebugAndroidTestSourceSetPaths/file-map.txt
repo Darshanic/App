@@ -1,0 +1,5 @@
+com.sktc.ticketprinter.test.app-androidTest-0 E:\App\app\build\generated\res\resValues\androidTest\debug
+com.sktc.ticketprinter.test.app-updated_navigation_xml-1 E:\App\app\build\generated\updated_navigation_xml\debugAndroidTest
+com.sktc.ticketprinter.test.app-mergeDebugAndroidTestResources-2 E:\App\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.sktc.ticketprinter.test.app-mergeDebugAndroidTestResources-3 E:\App\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.sktc.ticketprinter.test.app-debugAndroidTest-4 E:\App\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

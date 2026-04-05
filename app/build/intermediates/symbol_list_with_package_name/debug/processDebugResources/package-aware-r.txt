@@ -84,6 +84,8 @@ array delay_showing_prompt_models
 array hide_fingerprint_instantly_prefixes
 array printer_width_entries
 array printer_width_values
+array theme_mode_entries
+array theme_mode_values
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1353,6 +1355,10 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color btn_danger
+color btn_neutral
+color btn_success
+color btn_warning
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -1361,6 +1367,7 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color counter_background
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1403,12 +1410,20 @@ color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
+color divider_color
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color home_background
+color home_btn_report
+color home_btn_settings
+color home_btn_setup
+color home_btn_ticket
+color home_subtitle_text
+color home_title_text
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2035,6 +2050,9 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color panel_background
+color panel_success_background
+color panel_success_text
 color preference_fallback_accent_color
 color primary_dark
 color primary_dark_material_dark
@@ -2051,10 +2069,13 @@ color purple_500
 color purple_700
 color ripple_material_dark
 color ripple_material_light
+color screen_background
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color section_background
+color surface_background
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -2063,6 +2084,9 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color teal_200
 color teal_700
+color text_accent
+color text_primary
+color text_secondary
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -3291,6 +3315,7 @@ id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id ivAppIcon
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3549,6 +3574,8 @@ id triangle
 id tvAdminStatus
 id tvAdultCount
 id tvAdults
+id tvAppName
+id tvAppVersion
 id tvBusNumbers
 id tvBusType
 id tvChildCount
@@ -3711,6 +3738,7 @@ layout activity_daily_report
 layout activity_home
 layout activity_main
 layout activity_manager_setup
+layout activity_splash
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3840,6 +3868,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string androidx_startup
 string app_name
+string app_version_label
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string bottomsheet_action_collapse

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#101820"
+    android:background="@color/home_background"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="20dp">
@@ -14,7 +14,7 @@
         android:layout_marginBottom="6dp"
         android:gravity="center"
         android:text="Commute Management"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/home_title_text"
         android:textSize="28sp"
         android:textStyle="bold" />
 
@@ -24,7 +24,7 @@
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:text="Home Dashboard"
-        android:textColor="#B9C2CC"
+        android:textColor="@color/home_subtitle_text"
         android:textSize="16sp" />
 
     <Button
@@ -32,10 +32,10 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#1E3A5F"
+        android:backgroundTint="@color/home_btn_setup"
         android:text="Manager Setup"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/home_title_text"
         android:textSize="20sp" />
 
     <Button
@@ -43,10 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#006C67"
+        android:backgroundTint="@color/home_btn_ticket"
         android:text="Commute Ticket"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/home_title_text"
         android:textSize="20sp" />
 
     <Button
@@ -54,20 +54,20 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="#5E4B8B"
+        android:backgroundTint="@color/home_btn_report"
         android:text="Daily Report"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/home_title_text"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnSettings"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:backgroundTint="#3F3F46"
+        android:backgroundTint="@color/home_btn_settings"
         android:text="Settings"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/home_title_text"
         android:textSize="20sp" />
 
 </LinearLayout>

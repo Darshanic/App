@@ -105,11 +105,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory app:title="General">
+        <ListPreference
+            app:key="theme_mode"
+            app:title="Theme"
+            app:summary="Choose app theme mode"
+            app:entries="@array/theme_mode_entries"
+            app:entryValues="@array/theme_mode_values"
+            app:defaultValue="system"/>
+
         <SwitchPreferenceCompat
-            app:key="ignore_print_errors"
-            app:title="Ignore print errors"
-            app:summary="Use when testing the app without a printer"
-            app:defaultValue="true"/>
+            app:key="ignore_bluetooth_error"
+            app:title="Ignore Bluetooth error"
+            app:summary="Bypass Bluetooth printer errors and continue ticket/report processing"
+            app:defaultValue="false"/>
             
         <Preference
             app:key="change_settings_pin"

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TicketPrinter</string>
+    <string name="app_version_label">Version %1$s</string>
 </resources>

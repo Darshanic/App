@@ -222,15 +222,24 @@ class RouteDslParser(private val context: Context) {
 
     private fun matchesConfiguredBusType(routeBusTypeCode: String, configuredBusType: String): Boolean {
         val routeToken = normalizeToken(routeBusTypeCode)
-        return when (configuredBusType) {
-            "Ordinary Bus" -> routeToken.contains("ORD") && !routeToken.contains("CITY")
-            "City Bus" -> routeToken.contains("CITY") && !routeToken.contains("AC")
-            "City AC Bus" -> routeToken.contains("CITY") && routeToken.contains("AC")
-            "Express Bus" -> routeToken.contains("EXPRESS")
-            "Non-Stop Bus" -> routeToken.contains("NONSTOP") && !routeToken.contains("AC")
-            "Non-Stop AC Bus" -> routeToken.contains("NONSTOP") && routeToken.contains("AC")
-            "Sleeper Bus" -> routeToken.contains("SLEEPER") && !routeToken.contains("AC")
-            "AC Sleeper Bus" -> routeToken.contains("SLEEPER") && routeToken.contains("AC")
+        val configuredToken = normalizeToken(configuredBusType)
+        return when {
+            configuredToken == "ORDINARYBUS" || configuredToken.contains("ORD") ->
+                routeToken.contains("ORD") && !routeToken.contains("CITY")
+            configuredToken == "CITYBUS" ->
+                routeToken.contains("CITY") && !routeToken.contains("AC")
+            configuredToken == "CITYACBUS" ->
+                routeToken.contains("CITY") && routeToken.contains("AC")
+            configuredToken == "EXPRESSBUS" || configuredToken.contains("EXPRESS") ->
+                routeToken.contains("EXPRESS")
+            configuredToken == "NONSTOPBUS" ->
+                routeToken.contains("NONSTOP") && !routeToken.contains("AC")
+            configuredToken == "NONSTOPACBUS" ->
+                routeToken.contains("NONSTOP") && routeToken.contains("AC")
+            configuredToken == "SLEEPERBUS" ->
+                routeToken.contains("SLEEPER") && !routeToken.contains("AC")
+            configuredToken == "ACSLEEPERBUS" ->
+                routeToken.contains("SLEEPER") && routeToken.contains("AC")
             else -> true
         }
     }

@@ -8,6 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.preference.PreferenceManager
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -39,6 +41,7 @@ class DailyReportActivity : AppCompatActivity() {
     private lateinit var llTicketHistory: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report)
 
@@ -61,7 +64,7 @@ class DailyReportActivity : AppCompatActivity() {
         llTicketHistory = findViewById(R.id.llTicketHistory)
 
         btnPrintCurrentReport.setOnClickListener {
-            printCurrentReport()
+            confirmAndPrintCurrentReport()
         }
 
         bindReport()
@@ -152,7 +155,7 @@ class DailyReportActivity : AppCompatActivity() {
                 lp.bottomMargin = dp(10)
             }
             setPadding(dp(10), dp(10), dp(10), dp(10))
-            setBackgroundColor(0xFFFFF8E1.toInt())
+            setBackgroundColor(ContextCompat.getColor(this@DailyReportActivity, R.color.section_background))
 
             val details = TextView(this@DailyReportActivity).apply {
                 textSize = 14f
@@ -175,7 +178,7 @@ class DailyReportActivity : AppCompatActivity() {
                 textSize = 12f
                 isAllCaps = false
                 layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                setOnClickListener { printSnapshotReport(snapshot) }
+                setOnClickListener { confirmAndPrintSnapshotReport(snapshot) }
             }
 
             val deleteBtn = Button(this@DailyReportActivity).apply {
@@ -224,7 +227,7 @@ class DailyReportActivity : AppCompatActivity() {
         Toast.makeText(this, "Closed report deleted", Toast.LENGTH_SHORT).show()
     }
 
-    private fun printCurrentReport() {
+    private fun confirmAndPrintCurrentReport() {
         val setupPrefs = getSharedPreferences(setupPrefsName, MODE_PRIVATE)
         val reportPrefs = getSharedPreferences(reportPrefsName, MODE_PRIVATE)
 
@@ -244,11 +247,24 @@ class DailyReportActivity : AppCompatActivity() {
             put("closed_at", getCurrentDateTime())
         }
 
-        printReportText(buildReportPrintText(reportJson, "CURRENT REPORT"))
+        val printText = buildReportPrintText(reportJson, "CURRENT REPORT")
+        showReportPrintPreview(printText)
     }
 
-    private fun printSnapshotReport(snapshot: JSONObject) {
-        printReportText(buildReportPrintText(snapshot, "CLOSED REPORT"))
+    private fun confirmAndPrintSnapshotReport(snapshot: JSONObject) {
+        val printText = buildReportPrintText(snapshot, "CLOSED REPORT")
+        showReportPrintPreview(printText)
+    }
+
+    private fun showReportPrintPreview(printText: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Print Report")
+            .setMessage("Preview:\n\n$printText\nProceed with printing?")
+            .setPositiveButton("Print") { _, _ ->
+                printReportText(printText)
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     private fun buildReportPrintText(report: JSONObject, title: String): String {
@@ -275,26 +291,50 @@ class DailyReportActivity : AppCompatActivity() {
     }
 
     private fun printReportText(text: String) {
+        val ignoreBluetoothErrors = isIgnoreBluetoothErrorsEnabled()
         try {
             val pairedDevices = bluetoothManager.getPairedDevices()
             if (pairedDevices.isEmpty()) {
+                if (ignoreBluetoothErrors) {
+                    Toast.makeText(this, "Report processed (Bluetooth errors ignored)", Toast.LENGTH_LONG).show()
+                    return
+                }
                 Toast.makeText(this, "No Bluetooth printer paired.", Toast.LENGTH_LONG).show()
                 return
             }
 
             val printer = pairedDevices.first()
             if (!bluetoothManager.connectToPrinter(printer)) {
+                if (ignoreBluetoothErrors) {
+                    Toast.makeText(this, "Report processed (Bluetooth connect error ignored)", Toast.LENGTH_LONG).show()
+                    return
+                }
                 Toast.makeText(this, "Failed to connect to printer.", Toast.LENGTH_LONG).show()
                 return
             }
 
-            bluetoothManager.printData(text.toByteArray(Charsets.UTF_8))
-            Toast.makeText(this, "Report sent to printer", Toast.LENGTH_SHORT).show()
+            val written = bluetoothManager.printData(text.toByteArray(Charsets.UTF_8))
+            if (written) {
+                Toast.makeText(this, "Report sent to printer", Toast.LENGTH_SHORT).show()
+            } else if (ignoreBluetoothErrors) {
+                Toast.makeText(this, "Report processed (Bluetooth write error ignored)", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Report print failed while sending data.", Toast.LENGTH_LONG).show()
+            }
         } catch (ex: Exception) {
-            Toast.makeText(this, "Report print failed: ${ex.message ?: "Unknown error"}", Toast.LENGTH_LONG).show()
+            if (ignoreBluetoothErrors) {
+                Toast.makeText(this, "Report processed (Bluetooth exception ignored)", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Report print failed: ${ex.message ?: "Unknown error"}", Toast.LENGTH_LONG).show()
+            }
         } finally {
             bluetoothManager.disconnect()
         }
+    }
+
+    private fun isIgnoreBluetoothErrorsEnabled(): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        return prefs.getBoolean("ignore_bluetooth_error", false) || prefs.getBoolean("ignore_print_errors", false)
     }
 
     private fun parseTimestamp(value: String): Long {
@@ -394,7 +434,7 @@ class DailyReportActivity : AppCompatActivity() {
                 lp.bottomMargin = dp(8)
             }
             setPadding(dp(10), dp(10), dp(10), dp(10))
-            setBackgroundColor(0xFFF7F9FC.toInt())
+            setBackgroundColor(ContextCompat.getColor(this@DailyReportActivity, R.color.surface_background))
             text = rowText
             textSize = 13f
         }

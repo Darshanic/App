@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     
     <application
+        android:name="com.sktc.ticketprinter.TicketPrinterApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_app_icon"
         android:label="@string/app_name"
@@ -16,13 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicketPrinter">
         <activity
-            android:name="com.sktc.ticketprinter.HomeActivity"
-            android:exported="true">
+            android:name="com.sktc.ticketprinter.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TicketPrinter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.sktc.ticketprinter.HomeActivity"
+            android:exported="false" />
 
         <activity
             android:name="com.sktc.ticketprinter.MainActivity"

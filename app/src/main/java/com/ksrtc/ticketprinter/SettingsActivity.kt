@@ -3,11 +3,13 @@ package com.sktc.ticketprinter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.EditTextPreference
+import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         supportFragmentManager
             .beginTransaction()
@@ -26,6 +28,14 @@ class SettingsActivity : AppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.preferences, rootKey)
+
+            val themePreference = findPreference<ListPreference>(AppThemeManager.KEY_THEME_MODE)
+            themePreference?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
+            themePreference?.setOnPreferenceChangeListener { _, _ ->
+                AppThemeManager.applyTheme(requireContext())
+                activity?.recreate()
+                true
+            }
 
             val childRatePreference = findPreference<EditTextPreference>("child_ticket_rate")
             childRatePreference?.summaryProvider = EditTextPreference.SimpleSummaryProvider.getInstance()

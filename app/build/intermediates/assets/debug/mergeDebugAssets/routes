@@ -14,9 +14,39 @@ Stop, HKV Nagar, 6, 8
 Stop, Maddur Police Station, 6
 Stop, Madduru
 
+Route, Mandya - Madduru, Madduru - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-11,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14
+Stop, Hanakere, 6, 8, 10, 12
+Stop, Gejjalagere, 6, 8, 10
+Stop, HKV Nagar, 6, 8
+Stop, Maddur Police Station, 6
+Stop, Madduru
+
 Route, Mandya - Gejjalagere Industry, Gejjalagere Industry - Mandya,
 Division: Mandya Central,
 Type: City_Bus, Route No.: 11G,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer - Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18
+Stop, Swarnasandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Gejjalagere, 6
+Stop, Gejjalagere Industry
+
+Route, Mandya - Gejjalagere Industry, Gejjalagere Industry - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-11G,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
 Stop, Mahaveer - Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18
@@ -44,6 +74,20 @@ Stop, Tunkere
 
 Route, Mandya - Tunkere, Tunkere - Mandya,
 Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-12,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Kachegere, 6
+Stop, Tunkere
+
+Route, Mandya - Tunkere, Tunkere - Mandya,
+Division: Mandya Central,
 Type: City_Bus, Route No.: 12C,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
@@ -58,7 +102,35 @@ Stop, Tunkere
 
 Route, Mandya - Tunkere, Tunkere - Mandya,
 Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-12C,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Chikkegowdana Doddi, 6
+Stop, Tunkere
+
+Route, Mandya - Tunkere, Tunkere - Mandya,
+Division: Mandya Central,
 Type: City_Bus, Route No.: 12H,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14
+Stop, Boodanuru, 6, 8, 10, 12
+Stop, Hale Boodanuru, 6, 8, 10
+Stop, Hanakere, 6, 8
+Stop, Hongalli Matha, 6
+Stop, Tunkere
+
+Route, Mandya - Tunkere, Tunkere - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-12H,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17
@@ -89,7 +161,41 @@ Stop, Besagarahalli
 
 Route, Mandya - Besagarahalli, Besagarahalli - Mandya,
 Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-13,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16, 17
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hanakere, 6, 8, 10, 12, 14
+Stop, Chikkegowdana Doddi, 6, 8, 10, 12
+Stop, Muddangere, 6, 8, 10
+Stop, D N Pura, 6, 8
+Stop, Keremegaladoddi, 6
+Stop, Besagarahalli
+
+Route, Mandya - Besagarahalli, Besagarahalli - Mandya,
+Division: Mandya Central,
 Type: City_Bus, Route No.: 13S,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16, 17
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hanakere, 6, 8, 10, 12, 14
+Stop, Chikkegowdana Doddi, 6, 8, 10, 12
+Stop, Sollepura, 6, 8, 10
+Stop, Rampura, 6, 8
+Stop, Hombalegowdanadoddi, 6
+Stop, Besagarahalli
+
+Route, Mandya - Besagarahalli, Besagarahalli - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-13S,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
@@ -122,9 +228,43 @@ Stop, Hanumanthanagar, 6, 8
 Stop, Gudigere, 6
 Stop, K M Doddi
 
+Route, Mandya - K M Doddi, K M Doddi - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-101,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Navodaya, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Bhootanahosuru, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Kabbanahalli, 6, 8, 10, 12, 14, 16, 17
+Stop, Soonagahalli, 6, 8, 10, 12, 14, 16
+Stop, Hemmige, 6, 8, 10, 12, 14
+Stop, Madarahalli, 6, 8, 10, 12
+Stop, Harahalli, 6, 8, 10
+Stop, Hanumanthanagar, 6, 8
+Stop, Gudigere, 6
+Stop, K M Doddi
+
 Route, Mandya - D A Kere, D A Kere - Mandya,
 Division: Mandya Central,
 Type: City_Bus, Route No.: 101DA,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Navodaya, 6, 8, 10, 12, 14, 16, 17
+Stop, Bhootanahosuru, 6, 8, 10, 12, 14, 16
+Stop, Kabbanahalli, 6, 8, 10, 12, 14
+Stop, Soonagahalli, 6, 8, 10, 12
+Stop, Hemmige, 6, 8, 10
+Stop, Madarahalli, 6, 8
+Stop, Chikkamarigowda Nagar, 6
+Stop, D A Kere
+
+Route, Mandya - D A Kere, D A Kere - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-101DA,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21
@@ -155,9 +295,39 @@ Stop, Chikkamarigowda Nagar, 6, 8
 Stop, D A Kere, 6
 Stop, K M Doddi
 
+Route, Mandya - K M Doddi, K M Doddi - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-101D,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 17, 19, 21, 23
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 17, 19, 21
+Stop, Navodaya, 6, 8, 10, 12, 14, 16, 17, 19
+Stop, Bhootanahosuru, 6, 8, 10, 12, 14, 16, 17
+Stop, Kabbanahalli, 6, 8, 10, 12, 14, 16
+Stop, Soonagahalli, 6, 8, 10, 12, 14
+Stop, Hemmige, 6, 8, 10, 12
+Stop, Madarahalli, 6, 8, 10
+Stop, Chikkamarigowda Nagar, 6, 8
+Stop, D A Kere, 6
+Stop, K M Doddi
+
 Route, Mandya - Kannalli, Kannalli - Mandya,
 Division: Mandya Central,
 Type: City_Bus, Route No.: 102,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 22
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14
+Stop, Chennappana Doddi, 6, 8, 10, 12
+Stop, Belur, 6, 8, 10
+Stop, Kagehalla Doddi, 6, 8
+Stop, Javanegowdana Doddi, 6
+Stop, Kannalli
+
+Route, Mandya - Kannalli, Kannalli - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-102,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 22
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16
@@ -183,7 +353,34 @@ Stop, Kannali
 
 Route, Mandya - Kannali, Kannali - Mandya,
 Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-102H,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 22
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14
+Stop, Chennappana Doddi, 6, 8, 10, 12
+Stop, Belur, 6, 8, 10
+Stop, B Yarahalli, 6, 8
+Stop, Hucchalagere, 6
+Stop, Kannali
+
+Route, Mandya - Kannali, Kannali - Mandya,
+Division: Mandya Central,
 Type: City_Bus, Route No.: 102G,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 23, 25
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 19
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16
+Stop, Chennappana Doddi, 6, 8, 10, 12, 14
+Stop, Belur, 6, 8, 10, 12
+Stop, B Yarahalli, 6, 8, 10
+Stop, B Gowdagere, 6, 8
+Stop, Hucchalagere, 6
+Stop, Kannali
+
+Route, Mandya - Kannali, Kannali - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-102G,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 19, 23, 25
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 19, 23
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 19
@@ -198,6 +395,21 @@ Stop, Kannali
 Route, Mandya - D A Kere, D A Kere - Mandya,
 Division: Mandya Central,
 Type: City_Bus, Route No.: 102D,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 18, 20, 23, 26
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 18, 20, 23
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Arkeshwara Nagar, 6, 8, 10, 12, 14, 16, 18
+Stop, Chennappana Doddi, 6, 8, 10, 12, 14, 16
+Stop, Belur, 6, 8, 10, 12, 14
+Stop, B Yarahalli, 6, 8, 10, 12
+Stop, Hucchalagere, 6, 8, 10
+Stop, Kannali, 6, 8
+Stop, Muttanahalli, 6
+Stop, D A Kere
+
+Route, Mandya - D A Kere, D A Kere - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-102D,
 Stop, Mandya, 6, 8, 10, 12, 14, 16, 18, 20, 23, 26
 Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 18, 20, 23
 Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18, 20
@@ -225,3 +437,294 @@ Stop, Kattedoddi, 6, 8, 10
 Stop, B Gowdagere, 6, 8
 Stop, Hucchalagere, 6
 Stop, Kannali
+
+Route, Mandya - Kannli, Kannli - Mandya,
+Division: Mandya Central,
+Type: City_AC_Bus, Route No.: V-103,
+Stop, Mandya, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 27
+Stop, Mahaveer-Railway Station, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24
+Stop, Factory Circle, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Swarna Sandra, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Ummadahalli Gate, 6, 8, 10, 12, 14, 16, 18
+Stop, Boodanuru, 6, 8, 10, 12, 14, 16
+Stop, Hale Boodanuru, 6, 8, 10, 12, 14
+Stop, Mangaiyya Nagar, 6, 8, 10, 12
+Stop, Kattedoddi, 6, 8, 10
+Stop, B Gowdagere, 6, 8
+Stop, Hucchalagere, 6
+Stop, Kannali
+
+Route, Induvalu - Yattagadahalli, Yattagadahalli - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 104,
+Stop, Induvau, 6, 8, 10, 12, 14, 16, 18
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16
+Stop, VV Nagar, 6, 8, 10, 12, 14
+Stop, Chamundeshwari Nagar, 6, 8, 10, 12
+Stop, Kuvempu Nagar, 6, 8, 10
+Stop, Hosahalli, 6, 8
+Stop, Halahalli, 6
+Stop, Yettagadahalli
+
+Route, Induvalu - Yattagadahalli, Yattagadahalli - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-104,
+Stop, Induvau, 6, 8, 10, 12, 14, 16, 18
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16
+Stop, VV Nagar, 6, 8, 10, 12, 14
+Stop, Chamundeshwari Nagar, 6, 8, 10, 12
+Stop, Kuvempu Nagar, 6, 8, 10
+Stop, Hosahalli, 6, 8
+Stop, Halahalli, 6
+Stop, Yettagadahalli
+
+Route, Induvalu - Yattagadahalli, Yattagadahalli - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 104T,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Mandya Zilla Panchayat, 6, 8, 10, 12, 14, 16
+Stop, Police Colony, 6, 8, 10, 12, 14
+Stop, Karnataka Bar Circle, 6, 8, 10, 12
+Stop, Hosalli Circle, 6, 8, 10
+Stop, Thavarekere, 6, 8
+Stop, Housing Board, 6
+Stop, Yattagadahalli
+
+Route, Induvalu - Yattagadahalli, Yattagadahalli - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-104T,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Mandya Zilla Panchayat, 6, 8, 10, 12, 14, 16
+Stop, Police Colony, 6, 8, 10, 12, 14
+Stop, Karnataka Bar Circle, 6, 8, 10, 12
+Stop, Hosalli Circle, 6, 8, 10
+Stop, Thavarekere, 6, 8
+Stop, Housing Board, 6
+Stop, Yattagadahalli
+
+Route, Induvalu - Santhekasalagere, Santhekasalagere - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 61,
+Stop, Induvalu, 6, 8, 10, 12, 14
+Stop, Molekoppalu, 6, 8, 10, 12
+Stop, Hulkere, 6, 8, 10
+Stop, Bevinahalli, 6, 8
+Stop, Kothathi, 6
+Stop, Santhekasalagere
+
+Route, Induvalu - Santhekasalagere, Santhekasalagere - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-61,
+Stop, Induvalu, 6, 8, 10, 12, 14
+Stop, Molekoppalu, 6, 8, 10, 12
+Stop, Hulkere, 6, 8, 10
+Stop, Bevinahalli, 6, 8
+Stop, Kothathi, 6
+Stop, Santhekasalagere
+
+Route, Induvalu - Santhekasalagere, Santhekasalagere - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 61H,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Mandya Zilla Panchayat, 6, 8, 10, 12, 14, 16, 18
+Stop, Police Colony, 6, 8, 10, 12, 14, 16
+Stop, Karnataka Bar Circle, 6, 8, 10, 12, 14
+Stop, Hosalli Circle, 6, 8, 10, 12
+Stop, Adarsha School, 6, 8, 10
+Stop, Mahadeshwara Badavane, 6, 8
+Stop, Karasawadi, 6
+Stop, Santhekasalagere
+
+Route, Induvalu - Santhekasalagere, Santhekasalagere - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-61H,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 20, 22
+Stop, Kallahalli, 6, 8, 10, 12, 14, 16, 18, 20
+Stop, Mandya Zilla Panchayat, 6, 8, 10, 12, 14, 16, 18
+Stop, Police Colony, 6, 8, 10, 12, 14, 16
+Stop, Karnataka Bar Circle, 6, 8, 10, 12, 14
+Stop, Hosalli Circle, 6, 8, 10, 12
+Stop, Adarsha School, 6, 8, 10
+Stop, Mahadeshwara Badavane, 6, 8
+Stop, Karasawadi, 6
+Stop, Santhekasalagere
+
+Route, Induvalu - Keelara, Keelara - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 202,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 17, 18, 19, 20, 21
+Stop, Kallahalli MC Road, 6, 8, 10, 12, 14, 16, 17, 18, 19, 20
+Stop, Shankaramatha, 6, 8, 10, 12, 14, 16, 17, 18, 19
+Stop, Holalu Circle, 6, 8, 10, 12, 14, 16, 17, 18
+Stop, Sugar Town, 6, 8, 10, 12, 14, 16, 17
+Stop, Jayram Nagar, 6, 8, 10, 12, 14, 16
+Stop, Acetate Town, 6, 8, 10, 12, 14
+Stop, Ummadahalli Gate, 6, 8, 10, 12
+Stop, Ummadahalli, 6, 8, 10
+Stop, Bellundegere, 6, 8
+Stop, Basavanapura, 6
+Stop, Keelara
+
+Route, Induvalu - Keelara, Keelara - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-202,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 17, 18, 19, 20, 21
+Stop, Kallahalli MC Road, 6, 8, 10, 12, 14, 16, 17, 18, 19, 20
+Stop, Shankaramatha, 6, 8, 10, 12, 14, 16, 17, 18, 19
+Stop, Holalu Circle, 6, 8, 10, 12, 14, 16, 17, 18
+Stop, Sugar Town, 6, 8, 10, 12, 14, 16, 17
+Stop, Jayram Nagar, 6, 8, 10, 12, 14, 16
+Stop, Acetate Town, 6, 8, 10, 12, 14
+Stop, Ummadahalli Gate, 6, 8, 10, 12
+Stop, Ummadahalli, 6, 8, 10
+Stop, Bellundegere, 6, 8
+Stop, Basavanapura, 6
+Stop, Keelara
+
+Route, Induvalu - Arakere, Arakere - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 401K,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 20, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19, 20
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Kothathi, 6, 8, 10, 12, 14, 16
+Stop, Aladahalli, 6, 8, 10, 12, 14
+Stop, Peehalli, 6, 8, 10, 12
+Stop, Kodiyala, 6, 8, 10
+Stop, Tadagavadi, 6, 8
+Stop, Garkalli Gate, 6
+Stop, Arakere
+
+Route, Induvalu - Arakere, Arakere - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-401K,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 20, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19, 20
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Kothathi, 6, 8, 10, 12, 14, 16
+Stop, Aladahalli, 6, 8, 10, 12, 14
+Stop, Peehalli, 6, 8, 10, 12
+Stop, Kodiyala, 6, 8, 10
+Stop, Tadagavadi, 6, 8
+Stop, Garkalli Gate, 6
+Stop, Arakere
+
+Route, Induvalu - Arakere, Arakere - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 401,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18
+Stop, Hulkere, 6, 8, 10, 12, 14, 16
+Stop, B.Hulkere, 6, 8, 10, 12, 14
+Stop, Hunasanahalli, 6, 8, 10, 12
+Stop, Kodiyala, 6, 8, 10
+Stop, Tadagavadi, 6, 8
+Stop, Garkalli Gate, 6
+Stop, Arakere
+
+Route, Induvalu - Arakere, Arakere - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-401,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18
+Stop, Hulkere, 6, 8, 10, 12, 14, 16
+Stop, B.Hulkere, 6, 8, 10, 12, 14
+Stop, Hunasanahalli, 6, 8, 10, 12
+Stop, Kodiyala, 6, 8, 10
+Stop, Tadagavadi, 6, 8
+Stop, Garkalli Gate, 6
+Stop, Arakere
+
+Route, Induvalu - Arakere, Arakere - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 401A,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 20, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19, 20
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Kothathi, 6, 8, 10, 12, 14, 16
+Stop, Aladahalli, 6, 8, 10, 12, 14
+Stop, Peehalli, 6, 8, 10, 12
+Stop, Bannahalli, 6, 8, 10
+Stop, Bettahalli, 6, 8
+Stop, Ballekere, 6
+Stop, Arakere
+
+Route, Induvalu - Arakere, Arakere - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-401A,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 20, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19, 20
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Kothathi, 6, 8, 10, 12, 14, 16
+Stop, Aladahalli, 6, 8, 10, 12, 14
+Stop, Peehalli, 6, 8, 10, 12
+Stop, Bannahalli, 6, 8, 10
+Stop, Bettahalli, 6, 8
+Stop, Ballekere, 6
+Stop, Arakere
+
+Route, Induvalu - Seehalli, Seehalli - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 401S,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 20, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19, 20
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Kothathi, 6, 8, 10, 12, 14, 16
+Stop, Aladahalli, 6, 8, 10, 12, 14
+Stop, Peehalli, 6, 8, 10, 12
+Stop, Bannahalli, 6, 8, 10
+Stop, Bettahalli, 6, 8
+Stop, Hunasagahalli, 6
+Stop, Seehalli
+
+Route, Induvalu - Seehalli, Seehalli - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-401S,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 20, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19, 20
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16, 18
+Stop, Kothathi, 6, 8, 10, 12, 14, 16
+Stop, Aladahalli, 6, 8, 10, 12, 14
+Stop, Peehalli, 6, 8, 10, 12
+Stop, Bannahalli, 6, 8, 10
+Stop, Bettahalli, 6, 8
+Stop, Hunasagahalli, 6
+Stop, Seehalli
+
+Route, Induvalu - Neralekere, Neralekere - Induvalu,
+Division: Induvalu,
+Type: City_Bus, Route No.: 401N,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16
+Stop, Kothathi, 6, 8, 10, 12, 14
+Stop, Aladahalli, 6, 8, 10, 12
+Stop, Peehalli, 6, 8, 10
+Stop, Bannahalli, 6, 8
+Stop, Bettahalli, 6
+Stop, Neralekere
+
+
+Route, Induvalu - Neralekere, Neralekere - Induvalu,
+Division: Induvalu,
+Type: City_AC_Bus, Route No.: V-401N,
+Stop, Induvalu, 6, 8, 10, 12, 14, 16, 18, 19, 21
+Stop, Molekoppalu, 6, 8, 10, 12, 14, 16, 18, 19
+Stop, Hulkere, 6, 8, 10, 12, 14, 16, 18
+Stop, Bevinahalli, 6, 8, 10, 12, 14, 16
+Stop, Kothathi, 6, 8, 10, 12, 14
+Stop, Aladahalli, 6, 8, 10, 12
+Stop, Peehalli, 6, 8, 10
+Stop, Bannahalli, 6, 8
+Stop, Bettahalli, 6
+Stop, Neralekere

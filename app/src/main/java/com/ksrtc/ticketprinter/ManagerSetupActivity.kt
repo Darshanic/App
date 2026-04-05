@@ -229,6 +229,7 @@ class ManagerSetupActivity : AppCompatActivity() {
     private var adminScopeLocked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager_setup)
         routeDslParser = RouteDslParser(this)
@@ -439,12 +440,16 @@ class ManagerSetupActivity : AppCompatActivity() {
         adminScopeLocked = false
         setAdminControlsEnabled(false)
         etPassKey.isEnabled = true
-        btnAuthorize.visibility = View.VISIBLE
-        btnBiometric.visibility = View.GONE
+        rgAuthMethod.visibility = View.VISIBLE
+        rbPassKey.visibility = View.VISIBLE
+        rbBiometric.visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvPassKeyLabel).visibility = View.VISIBLE
         btnConfirmAdminScope.isEnabled = true
-        rbPassKey.isChecked = true
+        if (!biometricAvailable) {
+            rbPassKey.isChecked = true
+        }
         updateAuthMethodUI()
-        adminStatusText.text = "Admin controls are locked. Choose authentication method above and authorize to configure zones/division."
+        adminStatusText.text = "Admin controls are locked. Choose pass key or biometric authentication and authorize to configure zones/division."
         switchConfirmBeforePrint.isChecked = true
         Toast.makeText(this, "Setup reset. Re-authorize to configure zones/division.", Toast.LENGTH_SHORT).show()
     }
@@ -565,7 +570,7 @@ class ManagerSetupActivity : AppCompatActivity() {
 
     private fun confirmAdminScope() {
         if (!adminUnlocked) {
-            Toast.makeText(this, "Enter pass key first to access admin controls.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Authorize with pass key or biometric first to access admin controls.", Toast.LENGTH_LONG).show()
             return
         }
 

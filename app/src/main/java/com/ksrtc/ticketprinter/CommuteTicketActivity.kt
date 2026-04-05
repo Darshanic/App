@@ -6,7 +6,6 @@ import android.media.ToneGenerator
 import android.os.Handler
 import android.os.Bundle
 import android.os.Looper
-import android.graphics.Bitmap
 import android.text.InputFilter
 import android.text.InputType
 import android.view.View
@@ -26,11 +25,14 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.io.File
-import java.io.FileOutputStream
 import kotlin.math.ceil
 
 class CommuteTicketActivity : AppCompatActivity() {
+
+    companion object {
+        private const val MAX_ADULTS_PER_TICKET = 5
+        private const val MAX_CHILDREN_PER_TICKET = 5
+    }
 
     private val bluetoothManager = BluetoothPrinterManager()
     private val ticketFormatter = TicketFormatter()
@@ -89,6 +91,7 @@ class CommuteTicketActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_commute_ticket)
         routeDslParser = RouteDslParser(this)
@@ -131,9 +134,14 @@ class CommuteTicketActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val chosen = passTypes[position]
                 if (chosen.startsWith("Day Pass") && !isCityBusService()) {
+                    val dayPassValidityMessage = if (isCityAcBusService()) {
+                        "Day Pass is valid in City AC Bus services only."
+                    } else {
+                        "Day Pass is valid only for city bus class services."
+                    }
                     Toast.makeText(
                         this@CommuteTicketActivity,
-                        "Day Pass is valid only for city bus class services.",
+                        dayPassValidityMessage,
                         Toast.LENGTH_LONG
                     ).show()
                     spPassType.setSelection(0)
@@ -321,9 +329,13 @@ class CommuteTicketActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnAdultPlus).setOnClickListener {
-            adultCount++
-            updateCounterUI()
-            calculateFare()
+            if (adultCount < MAX_ADULTS_PER_TICKET) {
+                adultCount++
+                updateCounterUI()
+                calculateFare()
+            } else {
+                Toast.makeText(this, "Maximum $MAX_ADULTS_PER_TICKET adults per ticket", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Child counters
@@ -336,9 +348,13 @@ class CommuteTicketActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnChildPlus).setOnClickListener {
-            childCount++
-            updateCounterUI()
-            calculateFare()
+            if (childCount < MAX_CHILDREN_PER_TICKET) {
+                childCount++
+                updateCounterUI()
+                calculateFare()
+            } else {
+                Toast.makeText(this, "Maximum $MAX_CHILDREN_PER_TICKET children per ticket", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Luggage counters
@@ -368,13 +384,14 @@ class CommuteTicketActivity : AppCompatActivity() {
     private fun calculateFare() {
         val childRate = getChildRateFactor()
         val segmentFare = getSegmentBaseFare()
-        val effectiveBaseFare = segmentFare * getBusTypeFareMultiplier()
+        val effectiveBaseFare = segmentFare * getBusTypeFareMultiplier(segmentFare)
+        val dayPassAmount = getDayPassAmount()
         var fare = 0.0
 
         fare += when (selectedPassType) {
             "Student Pass" -> 0.0
             "Senior Discount Pass" -> adultCount * (effectiveBaseFare * 0.70)
-            "Day Pass" -> adultCount * 70.0
+            "Day Pass" -> adultCount * dayPassAmount
             else -> {
                 // Normal ticket fare
                 adultCount * effectiveBaseFare + (childCount * (effectiveBaseFare * childRate))
@@ -589,8 +606,22 @@ class CommuteTicketActivity : AppCompatActivity() {
             return
         }
 
+        if (adultCount > MAX_ADULTS_PER_TICKET || childCount > MAX_CHILDREN_PER_TICKET) {
+            Toast.makeText(
+                this,
+                "Limit is $MAX_ADULTS_PER_TICKET adults and $MAX_CHILDREN_PER_TICKET children per ticket",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
         if (selectedPassType == "Day Pass" && !isCityBusService()) {
-            Toast.makeText(this, "Day Pass can be used only for city bus class services.", Toast.LENGTH_LONG).show()
+            val dayPassValidityMessage = if (isCityAcBusService()) {
+                "Day Pass is valid in City AC Bus services only."
+            } else {
+                "Day Pass can be used only for city bus class services."
+            }
+            Toast.makeText(this, dayPassValidityMessage, Toast.LENGTH_LONG).show()
             return
         }
 
@@ -820,13 +851,15 @@ class CommuteTicketActivity : AppCompatActivity() {
             val busNumber = setupPrefs.getString("bus_numbers", "")?.split(",")?.firstOrNull()?.trim().orEmpty()
             val busType = getConfiguredBusType()
             val dateTime = getCurrentDateTime()
-            val effectiveBaseFare = getSegmentBaseFare() * getBusTypeFareMultiplier()
+            val segmentFare = getSegmentBaseFare()
+            val effectiveBaseFare = segmentFare * getBusTypeFareMultiplier(segmentFare)
+            val dayPassAmount = getDayPassAmount()
 
             val childRate = getChildRateFactor()
             val adultFareTotal = ceilFare(
                 when (selectedPassType) {
                     "Senior Discount Pass" -> adultCount * (effectiveBaseFare * 0.70)
-                    "Day Pass" -> adultCount * 70.0
+                    "Day Pass" -> adultCount * dayPassAmount
                     "Student Pass" -> 0.0
                     else -> adultCount * effectiveBaseFare
                 }
@@ -837,7 +870,11 @@ class CommuteTicketActivity : AppCompatActivity() {
             val seniorFareTotal = if (selectedPassType == "Senior Discount Pass") adultFareTotal else 0.0
             val passFareTotal = if (selectedPassType == "Senior Discount Pass") seniorFareTotal else 0.0
             val luggageFareTotal = ceilFare(luggageCount * luggageFare)
-            val dayPassAmount = 70.0
+            val dayPassValidityText = if (isCityAcBusService()) {
+                "Valid in City AC Bus services only"
+            } else {
+                "Valid in City Bus services only"
+            }
 
             val routeDisplayValue = when {
                 routeNumber.isNotBlank() -> routeNumber
@@ -890,6 +927,7 @@ class CommuteTicketActivity : AppCompatActivity() {
                     routeNumber = routeDisplayValue,
                     busType = busType,
                     busNumber = busNumber,
+                    validityText = dayPassValidityText,
                     printDateTime = dateTime
                 )
             } else {
@@ -918,74 +956,74 @@ class CommuteTicketActivity : AppCompatActivity() {
                 )
             }
 
-            // SAVE TICKET TO FILE (instead of printing)
-            val fileName = saveTicketToFile(ticketBitmap, ticketNo, division)
-            
-            // Update records
+            val printSent = printTicketBitmap(ticketBitmap)
+            if (!printSent) {
+                return
+            }
+
             updateDailyReportTotals()
             appendTicketHistory()
 
-            Toast.makeText(
-                this,
-                "Ticket Saved!\nFile: $fileName\nFare: ₹${String.format("%.2f", totalFare)}",
-                Toast.LENGTH_LONG
-            ).show()
+            val message = if (isIgnoreBluetoothErrorsEnabled()) {
+                "Ticket processed (Bluetooth errors ignored). Fare: ₹${String.format("%.2f", totalFare)}"
+            } else {
+                "Ticket printed. Fare: ₹${String.format("%.2f", totalFare)}"
+            }
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
-            // Reset after successful save
             resetForm()
         } catch (ex: Exception) {
-            // IGNORE PRINTING ERRORS - still update records
-            handleSaveError(ex)
+            if (isIgnoreBluetoothErrorsEnabled()) {
+                updateDailyReportTotals()
+                appendTicketHistory()
+                Toast.makeText(
+                    this,
+                    "Ticket processed (Bluetooth error ignored: ${ex.message ?: "Unknown error"})",
+                    Toast.LENGTH_LONG
+                ).show()
+                resetForm()
+            } else {
+                Toast.makeText(this, "Ticket print failed: ${ex.message ?: "Unknown error"}", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
-    private fun saveTicketToFile(bitmap: Bitmap, ticketNo: String, division: String): String {
-        try {
-            // Save to external storage in app-specific directory (easier for users to access)
-            val externalFilesDir = getExternalFilesDir(null)
-                ?: throw Exception("External storage not available")
-            
-            // Create tickets folder in external storage
-            val ticketsDir = File(externalFilesDir, "tickets")
-            if (!ticketsDir.exists()) {
-                ticketsDir.mkdirs()
+    private fun printTicketBitmap(bitmap: android.graphics.Bitmap): Boolean {
+        val ignoreBluetoothErrors = isIgnoreBluetoothErrorsEnabled()
+        val pairedDevices = bluetoothManager.getPairedDevices()
+        if (pairedDevices.isEmpty()) {
+            if (ignoreBluetoothErrors) {
+                return true
             }
+            Toast.makeText(this, "No Bluetooth printer paired.", Toast.LENGTH_LONG).show()
+            return false
+        }
 
-            // Create division subfolder
-            val divisionDir = File(ticketsDir, division.replace(" ", "_").replace("/", "-"))
-            if (!divisionDir.exists()) {
-                divisionDir.mkdirs()
+        val printer = pairedDevices.first()
+        val connected = bluetoothManager.connectToPrinter(printer)
+        if (!connected) {
+            if (ignoreBluetoothErrors) {
+                return true
             }
+            Toast.makeText(this, "Failed to connect to Bluetooth printer.", Toast.LENGTH_LONG).show()
+            return false
+        }
 
-            // Generate filename with ticket number and timestamp
-            val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val fileName = "Ticket_${ticketNo}_${timestamp}.jpg"
-            val filePath = File(divisionDir, fileName)
-
-            // Save bitmap as JPEG
-            FileOutputStream(filePath).use { fos ->
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-                fos.flush()
+        return try {
+            val printBytes = ticketFormatter.decodeBitmapToByteArray(bitmap)
+            val written = bluetoothManager.printData(printBytes)
+            if (!written && !ignoreBluetoothErrors) {
+                Toast.makeText(this, "Failed to send ticket data to printer.", Toast.LENGTH_LONG).show()
             }
-
-            return filePath.absolutePath
-        } catch (ex: Exception) {
-            throw Exception("Failed to save ticket: ${ex.message}", ex)
+            written || ignoreBluetoothErrors
+        } finally {
+            bluetoothManager.disconnect()
         }
     }
 
-    private fun handleSaveError(ex: Exception) {
-        // IGNORE ALL ERRORS as per user request
-        Toast.makeText(
-            this,
-            "Ticket save ignored (error: ${ex.message ?: "Unknown error"})",
-            Toast.LENGTH_LONG
-        ).show()
-        
-        // Still update records
-        updateDailyReportTotals()
-        appendTicketHistory()
-        resetForm()
+    private fun isIgnoreBluetoothErrorsEnabled(): Boolean {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        return prefs.getBoolean("ignore_bluetooth_error", false) || prefs.getBoolean("ignore_print_errors", false)
     }
 
     private fun executeStudentPassEntry() {
@@ -1027,7 +1065,13 @@ class CommuteTicketActivity : AppCompatActivity() {
     private fun isCityBusService(): Boolean {
         val busType = getConfiguredBusType()
         val normalizedBusType = busType.uppercase().replace("_", "").replace("-", "").replace(" ", "")
-        return normalizedBusType == "CITYBUS"
+        return normalizedBusType.contains("CITY")
+    }
+
+    private fun isCityAcBusService(): Boolean {
+        val busType = getConfiguredBusType()
+        val normalizedBusType = busType.uppercase().replace("_", "").replace("-", "").replace(" ", "")
+        return normalizedBusType.contains("CITY") && normalizedBusType.contains("AC")
     }
 
     private fun getSegmentBaseFare(): Double {
@@ -1042,10 +1086,27 @@ class CommuteTicketActivity : AppCompatActivity() {
         return setupPrefs.getString("bus_type", "Ordinary Bus") ?: "Ordinary Bus"
     }
 
-    private fun getBusTypeFareMultiplier(): Double {
-        return when (getConfiguredBusType()) {
-            "City AC Bus", "Non-Stop AC Bus", "AC Sleeper Bus" -> 2.5
+    private fun getBusTypeFareMultiplier(segmentFare: Double): Double {
+        val normalizedBusType = getConfiguredBusType()
+            .uppercase()
+            .replace("_", "")
+            .replace("-", "")
+            .replace(" ", "")
+
+        return when {
+            normalizedBusType.contains("CITY") && normalizedBusType.contains("AC") -> 2.5
+            normalizedBusType.contains("NONSTOP") && normalizedBusType.contains("AC") -> 2.5
+            normalizedBusType.contains("SLEEPER") && normalizedBusType.contains("AC") -> 2.5
             else -> 1.0
+        }
+    }
+
+    private fun getDayPassAmount(): Double {
+        val baseDayPassAmount = 70.0
+        return if (isCityAcBusService()) {
+            ceilFare(baseDayPassAmount * 2.5)
+        } else {
+            baseDayPassAmount
         }
     }
 

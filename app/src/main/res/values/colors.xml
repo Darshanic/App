@@ -10,4 +10,31 @@
     <color name="primary_dark">#FF1A1A1A</color>
     <color name="primary_text">#FFFFFFFF</color>
     <color name="accent_blue">#FF00ACC1</color>
+
+    <color name="screen_background">#FFF7F8FA</color>
+    <color name="surface_background">#FFFFFFFF</color>
+    <color name="section_background">#FFF5F8FF</color>
+    <color name="divider_color">#FFE0E0E0</color>
+
+    <color name="text_primary">#FF111111</color>
+    <color name="text_secondary">#FF616161</color>
+    <color name="text_accent">#FF1976D2</color>
+
+    <color name="counter_background">#FFF5F5F5</color>
+    <color name="panel_background">#FFE3F2FD</color>
+    <color name="panel_success_background">#FFE8F5E9</color>
+    <color name="panel_success_text">#FF1B5E20</color>
+
+    <color name="home_background">#FF101820</color>
+    <color name="home_title_text">#FFFFFFFF</color>
+    <color name="home_subtitle_text">#FFB9C2CC</color>
+    <color name="home_btn_setup">#FF1E3A5F</color>
+    <color name="home_btn_ticket">#FF006C67</color>
+    <color name="home_btn_report">#FF5E4B8B</color>
+    <color name="home_btn_settings">#FF3F3F46</color>
+
+    <color name="btn_warning">#FFF57C00</color>
+    <color name="btn_success">#FF388E3C</color>
+    <color name="btn_danger">#FFD32F2F</color>
+    <color name="btn_neutral">#FF757575</color>
 </resources>
