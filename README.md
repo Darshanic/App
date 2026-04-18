@@ -1,104 +1,287 @@
 # SKTC Ticket Printer App
 
-This repository contains a full Android mobile application and testing suite designed to emulate the physical ticketing machines used by the KSRTC, specifically tailored for Bluetooth thermal receipt printing and dynamic ticket calculation.
+Android ticketing app for bus operations with route-based fare calculation, Bluetooth thermal printing, manager-controlled setup, and daily reporting.
 
-It was built entirely in Kotlin and includes a custom SQLite database engine to calculate fares directly on the device using user-defined route text files.
+This README is a complete feature + implementation map of what is currently available in this codebase.
 
-## Project Structure
+## Current Build Info
 
-The project directory (`e:\App`) is organized into several key components:
+- App version: `2.2.0`
+- Version code: `8`
+- Compile SDK: `34`
+- Min SDK: `24`
+- Target SDK: `34`
+- Kotlin/JVM target: `17`
+- Main Android package: `com.sktc.ticketprinter`
 
-### 1. The Core Android Application
+Source: [app/build.gradle.kts](app/build.gradle.kts), [app/src/main/AndroidManifest.xml](app/src/main/AndroidManifest.xml)
 
-The `app/src/main/` folder holds the true Android application.
+## High-Level Architecture
 
-- `MainActivity.kt`: The main screen. Allows selecting source, destination, adults, and child passengers to dynamically price trips.
-- `BluetoothPrinterManager.kt`: The hardware integration layer. Manages Bluetooth connection/permissions (`Android 12+`) and sets up an RFCOMM socket with standard ESC/POS portable receipt printers over UUID `00001101-0000-1000-8000-00805F9B34FB`.
-- `TicketFormatter.kt`: Because standard ESC/POS printers do not support Kannada fonts natively, this class uses Android Canvas to accurately render the ticket with standard Kannada text, corporation headers, layouts, and logos into a continuous `Bitmap`. It converts the image into ESC/POS binary raster commands to flawlessly print accurate Kannada layouts.
-- `RouteDatabaseHelper.kt`: A dynamic SQLite Database. Upon initialization, it attempts to read the `english_routes.txt` file from the local file system. It automatically creates local tables for dynamic destinations and tracks exactly what the fare must be as configured by your text file.
-- `SettingsActivity.kt`: A comprehensive configuration drawer that allows toggling printer character width, enabling/disabling child ticket rate (e.g., 50% discount), luggage ticket fares, and "Confirm Before Printing" alerts.
+### User Flow
 
-### 2. Custom Routings configuration
+1. Splash screen -> Home
+2. Home routes user to:
+   - Manager Setup
+   - Commute Ticket (modern)
+   - Daily Report
+   - Settings
 
-- **`english_routes.txt`**: This is your master data file. The application reads it row-by-row.
-  Just define your stops separated by a comma. The application understands it automatically:
-  ```
-  Route, Mandya, Srirangapatna, , ORDINARY
-  Stop, Mandya, 6, 8, 10, 12...    // Literals corresponding to exact fare multipliers or jumps.
-  Stop, Kallahalli, 6, 8, 10...
-  ```
+### Core Modules
 
-### 3. Desktop Testing Applications
+- Navigation and startup: [app/src/main/java/com/ksrtc/ticketprinter/SplashActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/SplashActivity.kt), [app/src/main/java/com/ksrtc/ticketprinter/HomeActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/HomeActivity.kt)
+- Ticket issuance and fare engine: [app/src/main/java/com/ksrtc/ticketprinter/CommuteTicketActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/CommuteTicketActivity.kt)
+- Manager configuration and auth: [app/src/main/java/com/ksrtc/ticketprinter/ManagerSetupActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/ManagerSetupActivity.kt)
+- Reports and history: [app/src/main/java/com/ksrtc/ticketprinter/DailyReportActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/DailyReportActivity.kt)
+- Route parser and fare matrix: [app/src/main/java/com/ksrtc/ticketprinter/RouteDslParser.kt](app/src/main/java/com/ksrtc/ticketprinter/RouteDslParser.kt)
+- Bluetooth print transport: [app/src/main/java/com/ksrtc/ticketprinter/BluetoothPrinterManager.kt](app/src/main/java/com/ksrtc/ticketprinter/BluetoothPrinterManager.kt)
+- Ticket bitmap rendering: [app/src/main/java/com/ksrtc/ticketprinter/TicketFormatter.kt](app/src/main/java/com/ksrtc/ticketprinter/TicketFormatter.kt)
+- Theme management: [app/src/main/java/com/ksrtc/ticketprinter/AppThemeManager.kt](app/src/main/java/com/ksrtc/ticketprinter/AppThemeManager.kt)
 
-Because developing and deploying an Android APK can be cumbersome, two separate non-Android runnable previews were included in the root directory for instantaneous testing right on a Windows computer:
+## Features Available and How They Are Built
 
-- `Click_To_Run_Ticket_App.bat / desktop_app.py`: A fully functional desktop native window using Python / Tkinter. It directly links to the `english_routes.txt` file and functions exactly like the Android App would—allowing you to test if your numeric fares and routes are configured properly.
-- `preview.html`: A static Dark-Mode Web simulation of the XML layout that can be double-clicked and opened in Google Chrome.
+## 1) Splash + Home Navigation
 
----
+### What you get
 
-## How to Build & Run
+- 1-second splash screen with app version display
+- Home dashboard with quick navigation buttons
 
-**To verify the ticket calculations instantly on Windows:**
+### How it is built
 
-1. Navigate to your `e:\App` directory.
-2. Double-click `Click_To_Run_Ticket_App.bat`. This will pop open the interactive Ticket Application on your desktop!
+- Splash delay and version label in [app/src/main/java/com/ksrtc/ticketprinter/SplashActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/SplashActivity.kt)
+- Home button navigation via explicit intents in [app/src/main/java/com/ksrtc/ticketprinter/HomeActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/HomeActivity.kt)
 
-**To build the Android App for your Physical Phone/Ticketing Machine:**
+## 2) Manager Setup (Zone -> Division -> Route)
 
-1. Download and install **Android Studio**.
-2. Go to **File > Open**, and navigate to `E:\App`.
-3. Let the Gradle syncing background processes complete (may take 2 minutes on first run).
-4. From the top status bar, go to **Build > Build Bundle(s) / APK(s) > Build APK(s)**.
-5. Transfer the generated `.apk` file to your mobile device or Bluetooth printer hardware and tap to install it.
-6. Ensure Bluetooth is turned on, pair your printer in the Android OS, and launch the app!
+### What you get
 
----
+- Zone and division selection
+- Route selection from route DSL
+- Auto-populated route directions and bus type
+- Bus numbers storage
+- Confirm-before-print toggle
+- Admin auth using pass key or biometric
 
-## Setup Progress (March 2026)
+### How it is built
 
-The following setup/troubleshooting steps are already completed for this project:
+- Large zone-to-division map and spinner chain in [app/src/main/java/com/ksrtc/ticketprinter/ManagerSetupActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/ManagerSetupActivity.kt)
+- Biometric support via `BiometricManager` and `BiometricPrompt`
+- Pass key verification uses manager key in code (`1415`)
+- Configuration persisted in SharedPreferences `manager_setup`
 
-- Android SDK path is configured to `E:\SDK`.
-- Required SDK components were installed (`platforms`, `platform-tools`, `build-tools`, `cmdline-tools`, `emulator`).
-- Project `local.properties` was added with:
+Stored keys include:
 
-  ```properties
-  sdk.dir=E:\\SDK
-  ```
+- `zone`, `division`, `route`, `route_number`, `bus_type`, `bus_numbers`
+- `confirm_printing`
+- `auth_method`
 
-- Root Gradle configuration was migrated to modern plugin DSL in `build.gradle.kts`:
+## 3) Route Parsing and Fare Matrix Engine
 
-  ```kotlin
-  plugins {
-      id("com.android.application") version "8.1.0" apply false
-      id("org.jetbrains.kotlin.android") version "1.9.0" apply false
-  }
-  ```
+### What you get
 
-- Gradle user cache was cleared once to resolve possible corrupted dependency downloads.
+- Dynamic route loading from asset file
+- Up and down route generation
+- Stop-to-stop fare lookup from matrix
+- Bus type matching for filtering
 
-## What To Do Next
+### How it is built
 
-1. Open this project in Android Studio (`E:\App`).
-2. Wait for automatic Gradle import/sync to finish.
-3. If sync fails with dependency/plugin errors:
-   - Click the Gradle/Sync error suggestion to re-download dependencies.
-   - Use `File > Invalidate Caches` only if repeated syncs fail.
-   - Close Android Studio and stop Java/Gradle daemons, then reopen.
-4. Create/start a device from Device Manager (or connect a physical Android phone with USB debugging enabled).
-5. Run the `app` configuration.
+- Route DSL parser in [app/src/main/java/com/ksrtc/ticketprinter/RouteDslParser.kt](app/src/main/java/com/ksrtc/ticketprinter/RouteDslParser.kt)
+- Data source file: [app/src/main/assets/routes](app/src/main/assets/routes)
+- Fare lookup method: `ParsedRoute.fareBetween(fromStop, toStop)`
+- Reverse route matrix generation: `buildReverseFares(...)`
 
-## Important Note
+## 4) Commute Ticketing (Modern Screen)
 
-This repository currently contains `gradle/wrapper/gradle-wrapper.properties`, but does not include `gradlew` and `gradlew.bat` scripts at the root.
+### What you get
 
-- Android Studio can still import/sync using its own Gradle integration.
-- For terminal builds (`.\gradlew ...`), add/generate wrapper scripts first.
+- From/To stop selection
+- Adult/child/luggage counters
+- Pass type selection
+- Live fare calculation
+- Print, reset, report, and day-close actions
+- Ticket and revenue tracking
+
+### How it is built
+
+- Main implementation in [app/src/main/java/com/ksrtc/ticketprinter/CommuteTicketActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/CommuteTicketActivity.kt)
+- Route and stop data loaded from `manager_setup` + `RouteDslParser`
+- SharedPreferences `daily_report` stores totals and history
+
+### Important business rules currently enforced
+
+- Max passengers per ticket:
+  - Adults: 5
+  - Children: 5
+- Day Pass restrictions:
+  - Allowed only on city class services (with AC-specific message)
+- Pass and luggage restrictions:
+  - Passes are not allowed on luggage-only tickets
+  - Passenger and luggage journeys must be printed as separate tickets
+- Luggage handling:
+  - Manual luggage weight input dialog available
+  - Luggage fare is computed with per-kg rule based on segment fare
+
+### Fare calculation mechanics
+
+Built using helper methods in `CommuteTicketActivity`:
+
+- `getBusTypeFareMultiplier(...)`
+- `getDayPassAmount()`
+- `getLuggageFarePerKg(...)`
+- `getChildRateFactor()`
+
+Data comes from:
+
+- Route fare matrix in parsed route
+- Settings preferences like `child_ticket_rate`
+
+## 5) Day Close and Trip Snapshots
+
+### What you get
+
+- Day-close flow that captures a route snapshot
+- Trip reports list for historical closure entries
+
+### How it is built
+
+- Day-close trigger from `btnDayClose`
+- Snapshot persistence via `saveTripSnapshot()`
+- Stored as JSON array in `daily_report` key `trip_reports`
+- Ticket history stored in `daily_report` key `ticket_history`
+
+Source: [app/src/main/java/com/ksrtc/ticketprinter/CommuteTicketActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/CommuteTicketActivity.kt)
+
+## 6) Daily Report Screen
+
+### What you get
+
+- Current-day totals (tickets, adults, children, passes, luggage, revenue)
+- Closed report cards with print/delete actions
+- Ticket history section
+
+### How it is built
+
+- Screen and logic in [app/src/main/java/com/ksrtc/ticketprinter/DailyReportActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/DailyReportActivity.kt)
+- Data read from SharedPreferences:
+  - `manager_setup`
+  - `daily_report`
+- Report print text generated in `buildReportPrintText(...)`
+
+## 7) Ticket Rendering and Printing
+
+### What you get
+
+- Thermal-print friendly ticket output
+- Structured sections (header, route row, counts, totals, footer)
+- Senior ticket variant rendering
+
+### How it is built
+
+- Bitmap ticket rendering in [app/src/main/java/com/ksrtc/ticketprinter/TicketFormatter.kt](app/src/main/java/com/ksrtc/ticketprinter/TicketFormatter.kt)
+- Text width fit logic with `fitTextSize(...)` and optional compression `removeVowelsForFit(...)`
+- Bluetooth transport in [app/src/main/java/com/ksrtc/ticketprinter/BluetoothPrinterManager.kt](app/src/main/java/com/ksrtc/ticketprinter/BluetoothPrinterManager.kt)
+- Uses RFCOMM SPP UUID: `00001101-0000-1000-8000-00805F9B34FB`
+
+Required permissions are declared in [app/src/main/AndroidManifest.xml](app/src/main/AndroidManifest.xml).
+
+## 8) Settings and Feature Toggles
+
+### What you get
+
+- Print behavior settings
+- Ticketing behavior settings
+- Theme and general toggles
+
+### How it is built
+
+- Preferences UI in [app/src/main/res/xml/preferences.xml](app/src/main/res/xml/preferences.xml)
+- Settings screen in [app/src/main/java/com/ksrtc/ticketprinter/SettingsActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/SettingsActivity.kt)
+- Theme mode applied via [app/src/main/java/com/ksrtc/ticketprinter/AppThemeManager.kt](app/src/main/java/com/ksrtc/ticketprinter/AppThemeManager.kt)
+
+Key toggles include:
+
+- `confirm_printing`, `print_time_expense`, `print_stops_pass`, `printer_width`
+- `stage_lock`, `group_tickets`, `child_tickets`, `child_ticket_rate`, `enable_passes`, `luggage_tickets`
+- `theme_mode`, `ignore_bluetooth_error`, `beep_on_error`
+
+## 9) Legacy Ticket Screen
+
+### What you get
+
+- Basic legacy commute ticket UI still available
+
+### How it is built
+
+- [app/src/main/java/com/ksrtc/ticketprinter/MainActivity.kt](app/src/main/java/com/ksrtc/ticketprinter/MainActivity.kt)
+- Registered as legacy activity in manifest label
+
+This exists alongside the modern ticketing screen and is useful for compatibility/testing.
+
+## 10) Localization (English + Kannada)
+
+### What you get
+
+- English strings (default)
+- Kannada translations file
+
+### How it is built
+
+- Default resources: [app/src/main/res/values/strings.xml](app/src/main/res/values/strings.xml)
+- Kannada resources: [app/src/main/res/values-kn/strings.xml](app/src/main/res/values-kn/strings.xml)
+
+### Current status
+
+- Bilingual resource files are implemented and active
+- Major screens are migrated to string resources
+- A small number of titles/messages still exist as hardcoded literals in code and manifest labels; these can be fully migrated in a follow-up cleanup
+
+## Data and Storage Model
+
+## SharedPreferences
+
+- `manager_setup`: Admin configuration for route and bus context
+- `daily_report`: Runtime counters, revenue, ticket history, trip snapshots
+
+## Route and Fare Data
+
+- Primary runtime route source: `app/src/main/assets/routes`
+- Parsed into in-memory route objects via `RouteDslParser`
+
+## SQLite Helper (present in codebase)
+
+- [app/src/main/java/com/ksrtc/ticketprinter/RouteDatabaseHelper.kt](app/src/main/java/com/ksrtc/ticketprinter/RouteDatabaseHelper.kt)
+- Contains tables `Stops` and `Stages` and a parser for route lines
+- Useful for local fallback/alternate data handling patterns
+
+## Non-Android Preview Utilities (Root)
+
+- Python desktop preview launcher:
+  - [Click_To_Run_Ticket_App.bat](Click_To_Run_Ticket_App.bat)
+  - [desktop_app.py](desktop_app.py)
+- Kotlin Swing desktop preview:
+  - [DesktopApp.kt](DesktopApp.kt)
+- HTML mock UI preview:
+  - [preview.html](preview.html)
+
+These are convenience/testing utilities and are separate from the Android APK runtime path.
+
+## Build and Run
+
+## Android (Recommended)
+
+1. Open the project in Android Studio.
+2. Let Gradle sync complete.
+3. Run the `app` module on device/emulator.
+
+## Command-line note
+
+- This repository currently does not include `gradlew` / `gradlew.bat` scripts at root.
+- Use Android Studio sync/build, or generate Gradle wrapper scripts before terminal-only builds.
 
 ## License
 
-This project is proprietary and All Rights Reserved.
+Proprietary. All rights reserved.
 
-- See [LICENSE](LICENSE) for full legal terms.
-- Commercial use requires prior written consent from the copyright owner.
+See [LICENSE](LICENSE) for legal terms.
